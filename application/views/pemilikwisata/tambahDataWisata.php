@@ -77,127 +77,65 @@ function init(){
 
 function cari_alamat(){
 
- google.maps.Polygon.prototype.Contains = function (point) {
-    var crossings = 0,
-        path = this.getPath();
 
-    // for each edge
-      for (var i = 0; i < path.getLength(); i++) {
-        var a = path.getAt(i),
-            j = i + 1;
-        if (j >= path.getLength()) {
-            j = 0;
-        }
-        var b = path.getAt(j);
-        if (rayCrossesSegment(point, a, b)) {
-            crossings++;
-        }
-      }
+   // mengambil isi dari textarea dengan id alamat
+   var alamat = document.getElementById('alamat').value;
 
-    // odd number of crossings?
-    return (crossings % 2 == 1);
+   // membuat geocoder
+   var geocoder = new google.maps.Geocoder();
+   geocoder.geocode(
+    {'address': alamat},
+    function(results, status) {
+     if (status == google.maps.GeocoderStatus.OK) {
+      var info_window = new google.maps.InfoWindow();
 
-    function rayCrossesSegment(point, a, b) {
-        var px = point.lng(),
-            py = point.lat(),
-            ax = a.lng(),
-            ay = a.lat(),
-            bx = b.lng(),
-            by = b.lat();
-        if (ay > by) {
-            ax = b.lng();
-            ay = b.lat();
-            bx = a.lng();
-            by = a.lat();
-        }
-        // alter longitude to cater for 180 degree crossings
-        if (px < 0) {
-            px += 360;
-        }
-        if (ax < 0) {
-            ax += 360;
-        }
-        if (bx < 0) {
-            bx += 360;
-        }
+      // mendapatkan lokasi koordinat
+      var geo = results[0].geometry.location;
 
-        if (py == ay || py == by) py += 0.00000001;
-        if ((py > by || py < ay) || (px > Math.max(ax, bx))) return false;
-        if (px < Math.min(ax, bx)) return true;
+      // set koordinat
+      var pos = new google.maps.LatLng(geo.lat(),geo.lng());
 
-        var red = (ax != bx) ? ((by - ay) / (bx - ax)) : Infinity;
-        var blue = (ax != px) ? ((py - ay) / (px - ax)) : Infinity;
-        return (blue >= red);
+      //cek lat long di dalam polygon
+      var point = new google.maps.LatLng(geo.lat(),geo.lng());
 
-    }
+      var polygon = new google.maps.Polygon({
+              path:triangleCoords,
+              strokeColor: '#FF0000',
+              strokeOpacity: 0.8,
+              strokeWeight: 3,
+              fillColor: '#FF0000',
+              fillOpacity: 0.35
+              });
 
- };
 
- // mengambil isi dari textarea dengan id alamat
- var alamat = document.getElementById('alamat').value;
+              // menampilkan latitude dan longitude pada id lat dan lng
+              var lat = document.getElementById('lat').value = geo.lat();
+              var lng = document.getElementById('lng').value = geo.lng();
 
- // membuat geocoder
- var geocoder = new google.maps.Geocoder();
- geocoder.geocode(
-  {'address': alamat},
-  function(results, status) {
-   if (status == google.maps.GeocoderStatus.OK) {
-    var info_window = new google.maps.InfoWindow();
+               // membuat peta
+              var map = new google.maps.Map(document.getElementById('maps'),{
+                'center': pos,
+                'zoom': 17,
+                'mapTypeId': google.maps.MapTypeId.ROADMAP
+               });
+              polygon.setMap(map);
 
-    // mendapatkan lokasi koordinat
-    var geo = results[0].geometry.location;
+              // menambahkan marker pada peta
+              var marker = new google.maps.Marker({
+               position: pos,
+               title: alamat,
+               animation:google.maps.Animation.BOUNCE
+              });
+              marker.setMap(map);
 
-    // set koordinat
-    var pos = new google.maps.LatLng(geo.lat(),geo.lng());
+              // menambahkan event click ketika marker di klik
+              google.maps.event.addListener(marker, 'click', function () {
+               info_window.setContent('<b>'+ this.title +'</b>');
+               info_window.open(map, this);
+              });
 
-    //cek lat long di dalam polygon
-    var point = new google.maps.LatLng(geo.lat(),geo.lng());
-
-    var polygon = new google.maps.Polygon({
-            path:triangleCoords,
-            strokeColor: '#FF0000',
-            strokeOpacity: 0.8,
-            strokeWeight: 3,
-            fillColor: '#FF0000',
-            fillOpacity: 0.35
-            });
-
-         if (polygon.Contains(point)) {
-              // point is inside polygon
-
-            // menampilkan latitude dan longitude pada id lat dan lng
-            var lat = document.getElementById('lat').value = geo.lat();
-            var lng = document.getElementById('lng').value = geo.lng();
-
-             // membuat peta
-            var map = new google.maps.Map(document.getElementById('maps'),{
-              'center': pos,
-              'zoom': 17,
-              'mapTypeId': google.maps.MapTypeId.ROADMAP
-             });
-            polygon.setMap(map);
-
-            // menambahkan marker pada peta
-            var marker = new google.maps.Marker({
-             position: pos,
-             title: alamat,
-             animation:google.maps.Animation.BOUNCE
-            });
-            marker.setMap(map);
-
-            // menambahkan event click ketika marker di klik
-            google.maps.event.addListener(marker, 'click', function () {
-             info_window.setContent('<b>'+ this.title +'</b>');
-             info_window.open(map, this);
-            });
-          } else {
-            alert('Mohon Maaf Lokasi yang Anda Masukan diluar Kota Bandung');
-              var lat = document.getElementById('lat').value = "";
-            var lng = document.getElementById('lng').value = "";
-          }
-
-   } else {
-     alert('Lokasi Tidak Ditemukan');
+     } else {
+       alert('Lokasi Tidak Ditemukan');
    }
   }
  );

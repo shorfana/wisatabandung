@@ -4,7 +4,7 @@
 <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false&key=AIzaSyABAiRMExl_KVCugrFbUO5FJwNTo_94vt0&libraries=places"></script>
 <script type="text/javascript">
 
- var triangleCoords = [
+ var triangleCoords = [ <?php echo $polygon->coordinate ?>
             ];
 
 
@@ -225,7 +225,7 @@ google.maps.event.addDomListener(window, 'load', init);
             <hr>
 
             <div class="m-b-20">
-               <form action="<?php echo base_url() ?>/Pemilik_Wisata/actiontambahwisata" class="form-validation" enctype="multipart/form-data" method="post">
+               <form action="<?php echo base_url() ?>/Admin_Dinas/actiontambahwisata" class="form-validation" enctype="multipart/form-data" method="post">
                   <div class="form-group">
                      <label>Kode Wisata<span class="text-danger">*</span></label>
                      <input type="text" name="kode_wisata" parsley-trigger="change" required

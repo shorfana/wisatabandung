@@ -16,7 +16,7 @@
         <!-- Responsive datatable examples -->
         <link href="<?php echo base_url() ?>dark/assets/plugins/datatables/responsive.bootstrap4.min.css" rel="stylesheet" type="text/css" />
         <!-- Multi Item Selection examples -->
-        <link href="<?php echo base_url() ?>dark/assets/plugins/datatables/select.bootstrap4.min.css" rel="stylesheet" type="text/css" />   
+        <link href="<?php echo base_url() ?>dark/assets/plugins/datatables/select.bootstrap4.min.css" rel="stylesheet" type="text/css" />
         <!--Morris Chart CSS -->
         <link rel="stylesheet" href="<?php echo base_url() ?>dark/assets/plugins/morris/morris.css">
 
@@ -41,7 +41,7 @@
                 <div class="topbar-left">
                     <a href="index.html" class="logo">
                         <span>
-                           <font color="white">Wisata Bandung</font> 
+                           <font color="white">Wisata Bandung</font>
                         </span>
                         <i>
                             WB
@@ -52,7 +52,7 @@
                 <nav class="navbar-custom">
 
                     <ul class="list-unstyled topbar-right-menu float-right mb-0">
-                        
+
 
                         <li class="dropdown notification-list">
                             <a class="nav-link dropdown-toggle arrow-none waves-light waves-effect" data-toggle="dropdown" href="#" role="button"
@@ -118,20 +118,6 @@
                                     <h6 class="text-overflow m-0">Welcome !</h6>
                                 </div>
 
-                                <!-- item-->
-                                <a href="javascript:void(0);" class="dropdown-item notify-item">
-                                    <i class="ti-user"></i> <span>My Account</span>
-                                </a>
-
-                                <!-- item-->
-                                <a href="javascript:void(0);" class="dropdown-item notify-item">
-                                    <i class="ti-settings"></i> <span>Settings</span>
-                                </a>
-
-                                <!-- item-->
-                                <a href="javascript:void(0);" class="dropdown-item notify-item">
-                                    <i class="ti-lock"></i> <span>Lock Screen</span>
-                                </a>
 
                                 <!-- item-->
                                 <a href="<?php echo base_url()."Login/logout" ?>" class="dropdown-item notify-item">
@@ -160,7 +146,7 @@
                 </nav>
 
             </div>
-            <!-- Top Bar End -->   
+            <!-- Top Bar End -->
             <!-- ========== Left Sidebar Start ========== -->
             <div class="left side-menu">
                 <div class="user-details">
@@ -212,6 +198,4 @@
                 <div class="clearfix"></div>
 
             </div>
-            <!-- Left Sidebar End -->            
-             
-
+            <!-- Left Sidebar End -->

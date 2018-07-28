@@ -19,6 +19,11 @@ function get_all()
     return $this->db->get($this->table)->result();
 }
 
+function get_wisata_aktif_byId($id){
+  $sql="Select * from `data_wisata` where `dihapus`='T' and `id_pemilikwisata`=$id";
+  return $this->db->query($sql)->result();
+    }
+
 function get_wisata_aktif(){
   $sql="Select * from `data_wisata` where `dihapus`='T'";
   return $this->db->query($sql)->result();
@@ -72,7 +77,19 @@ function delete($id)
 
 public function nonaktif($id)
 {
-  $sql="Update `data_wisata` SET `dihapus`='Y' where `kode_wisata` = $id";
+  $sql="Update `data_wisata` SET `aktif`='T' where `kode_wisata` = $id";
+  $this->db->query($sql);
+}
+
+public function aktif($id)
+{
+  $sql="Update `data_wisata` SET `aktif`='Y' where `kode_wisata` = $id";
+  $this->db->query($sql);
+}
+
+public function hapus($id)
+{
+  $sql="Update `data_wisata` SET `dihapus`='Y', `aktif`='T' where `kode_wisata` = $id";
   $this->db->query($sql);
 }
 

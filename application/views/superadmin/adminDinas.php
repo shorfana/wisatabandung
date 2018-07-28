@@ -24,15 +24,15 @@
                                         DataTables has most features enabled by default, so all you need to do to use it with your own tables is to call the construction function.
                                         <br><br>
                                         <a href="<?php echo base_url()."Superadmin/vtambahAdmindinas" ?>" class="btn btn-custom btn-rounded">Tambah Admin Dinas</a>
-                                    
-                                    
+
+
                                     <table id="datatable" class="table table-bordered">
                                         <thead>
                                         <tr>
-                                            <th>NIP</th>
-                                            <th>nama Admin Dinas</th>
-                                            <th>Kode Kabupaten</th>
-                                            <th>Aksi</th>
+                                          <th>NIP</th>
+                                          <th>Nama</th>
+                                          <th>Wilayah Dinas</th>
+                                          <th>Aksi</th>
                                            <!--  <th>Age</th>
                                             <th>Start date</th>
                                             <th>Salary</th> -->
@@ -40,15 +40,15 @@
                                         </thead>
 
                                         <tbody>
-                                        <?php foreach ($admin_dinas as $ad): ?>    
-                                        <tr>
-                                            <td><?php echo $ad->username ?></td>
-                                            <td><?php echo $ad->nama ?></td>
-                                            <td><?php echo $ad->kode_kabupaten ?></td>
-                                            <td><span class="badge badge-custom badge-pill"><a href="<?php echo site_url('Superadmin/vUpdateadmindinas/'.$ad->username) ?>"><font color="white">Ubah</font></a></span>
-                                            <span class="badge badge-custom badge-pill"><a href="<?php echo base_url()."Superadmin/deleteAdmindinas?username=".$ad->username ?>"><font color="white">Hapus</font></a></span></td>
-                                        </tr>
-                                        <?php endforeach ?>
+                                          <?php foreach ($admindinas as $ad): ?>
+                                          <tr>
+                                              <td><?php echo $ad->username ?></td>
+                                              <td><?php echo $ad->nama ?></td>
+                                              <td><?php echo $ad->nama_kabupaten ?></td>
+                                              <td><span class="badge badge-custom badge-pill"><a href="<?php echo site_url('Superadmin/vUpdateadmindinas/'.$ad->username) ?>"><font color="white">Ubah</font></a></span>
+                                              <span class="badge badge-custom badge-pill"><a href="<?php echo base_url()."Superadmin/deleteAdmindinas?username=".$ad->username ?>"><font color="white">Hapus</font></a></span></td>
+                                          </tr>
+                                          <?php endforeach ?>
                                         </tbody>
                                     </table>
                                 </div>
@@ -120,7 +120,7 @@
         <script src="<?php echo base_url() ?>dark/assets/plugins/datatables/responsive.bootstrap4.min.js"></script>
 
         <!-- Selection table -->
-        <script src="<?php echo base_url() ?>dark/assets/plugins/datatables/dataTables.select.min.js"></script>          
+        <script src="<?php echo base_url() ?>dark/assets/plugins/datatables/dataTables.select.min.js"></script>
 
         <script type="text/javascript">
             $(document).ready(function() {

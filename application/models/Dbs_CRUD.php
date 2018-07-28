@@ -1,6 +1,6 @@
-<?php 
+<?php
 /**
- * 
+ *
  */
 class Dbs_CRUD extends CI_Model
 {
@@ -43,6 +43,22 @@ class Dbs_CRUD extends CI_Model
 		return $this->db->get('admin_dinas')->row();
 	}
 
+	function deleteAdmin($id){
+		$sql="Update `admin_dinas` SET `dihapus`='Y' where `username` = $id";
+	  $this->db->query($sql);
+	}
+
+	function getbyNIP($nip){
+		$this->db->where('nip',$nip);
+		return $this->db->get('admin_dinas')->row();
+	}
+
+	function get_by_id($id)
+	{
+		$this->db->where('username', $id);
+		return $this->db->get('admin_dinas')->row();
+	}
+
 	function getbykdkec($kode_kecamatan){
 		$this->db->where('kode_kecamatan',$kode_kecamatan);
 		return $this->db->get('kecamatan')->row();
@@ -51,7 +67,7 @@ class Dbs_CRUD extends CI_Model
 	function getbykdkel($kode_kelurahan){
 		$this->db->where('kode_kelurahan',$kode_kelurahan);
 		return $this->db->get('kelurahan')->row();
-	}	
+	}
 
 	public function get_kabupaten()
 			 {

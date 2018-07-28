@@ -4,7 +4,7 @@
 <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false&key=AIzaSyABAiRMExl_KVCugrFbUO5FJwNTo_94vt0&libraries=places"></script>
 <script type="text/javascript">
 
- var triangleCoords = [
+ var triangleCoords = [ <?php echo $polygon->coordinate ?>
             ];
 
 

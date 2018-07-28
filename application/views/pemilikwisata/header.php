@@ -172,7 +172,7 @@
                     <ul class="metismenu" id="side-menu">
                         <li class="menu-title">Navigation</li>
                         <li>
-                            <a href="<?php echo base_url() ?>Superadmin">
+                            <a href="<?php echo base_url() ?>Pemilik_Wisata">
                                 <i class="ti-home"></i><span> Dashboard </span>
                             </a>
                         </li>

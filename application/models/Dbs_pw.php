@@ -4,7 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Dbs_pw extends CI_Model{
 
   public $table = 'pemilik_wisata';
-public $id = 'email';
+public $id = 'id_pemilikwisata';
 public $order = 'DESC';
 
 function __construct()

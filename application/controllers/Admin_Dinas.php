@@ -29,12 +29,15 @@ class Admin_Dinas extends CI_Controller
     }
 
     function data_wisata(){
-            $data_wisata=$this->Data_Wisata_Model->get_wisata_aktif();
-            $data = array(
-                'data_wisata' => $data_wisata , );
-            $this->load->view('admindinas/header');
-            $this->load->view('admindinas/tampilDataWisata',$data);
-            $this->load->view('admindinas/footer');
+			$kode_kabupaten = $this->session->userdata('kode_kabupaten');
+			$data_wisata=$this->Data_Wisata_Model->get_by_kabupaten($kode_kabupaten);
+			// var_dump($data_wisata);
+			$data = array(
+					'data_wisata' => $data_wisata , );
+					// var_dump($data);
+			$this->load->view('admindinas/header');
+			$this->load->view('admindinas/tampilDataWisata',$data);
+			$this->load->view('admindinas/footer');
     }
 
     function pemilik_wisata_aktif(){
@@ -209,18 +212,23 @@ class Admin_Dinas extends CI_Controller
 
     function tambahwisata()
         {
-            $data = array(
-            'kabupaten' => $this->Dbs_CRUD->get_kabupaten(),
-            'kecamatan' => $this->Dbs_CRUD->get_kecamatan(),
-            'kelurahan' => $this->Dbs_CRUD->get_kelurahan(),
-            'kabupaten_selected' => '',
-            'kecamatan_selected' => '',
-            'kelurahan_selected' => '',
-        );
-            $this->load->view('admindinas/header');
-            $this->load->view('admindinas/tambahDataWisata',$data);
-            $this->load->view('admindinas/footer');
-        }
+					$kode_kabupaten 	= $this->session->userdata('kode_kabupaten');
+				$polygon = $this->Dbs_Polygon->get_by_kabupaten($kode_kabupaten);
+
+					$data = array(
+					'polygon' => $polygon,
+					'kabupaten' => $this->Dbs_CRUD->get_kabupaten(),
+					'kecamatan' => $this->Dbs_CRUD->get_kecamatan(),
+					'kelurahan' => $this->Dbs_CRUD->get_kelurahan(),
+					'kabupaten_selected' => $kode_kabupaten,
+					'kecamatan_selected' => '',
+					'kelurahan_selected' => '',
+			);
+
+					$this->load->view('admindinas/header');
+					$this->load->view('admindinas/tambahDataWisata',$data);
+					$this->load->view('admindinas/footer');
+			}
 
         function actiontambahwisata(){
                 $kode_wisata=$_POST['kode_wisata'];
@@ -279,28 +287,31 @@ class Admin_Dinas extends CI_Controller
                     }
                 }
                         //end upload gambar
-                redirect('Pemilik_Wisata/data_wisata','refresh');
+                redirect('Admin_Dinas/data_wisata','refresh');
             }
 
         // untuk edit
         public function editwisata($kode_wisata)
         {
-            $data_wisata=$this->Data_Wisata_Model->get_by_id($kode_wisata);
-                // realnya ambil data dari database, misalnya kita dapatkan data sbb:
+					$data_wisata=$this->Data_Wisata_Model->get_by_id($kode_wisata);
+					$kode_kabupaten 	= $this->session->userdata('kode_kabupaten');
+					$polygon = $this->Dbs_Polygon->get_by_kabupaten($kode_kabupaten);
+							// realnya ambil data dari database, misalnya kita dapatkan data sbb:
 
-                $data = array(
-                        'data_wisata' => $data_wisata,
-                        'kabupaten' => $this->Data_Wisata_Model->get_kabupaten(),
-                        'kecamatan' => $this->Data_Wisata_Model->get_kecamatan(),
-                        'kelurahan' => $this->Data_Wisata_Model->get_kelurahan(),
-                        'kabupaten_selected' => $data_wisata->kode_kabupaten,
-                        'kecamatan_selected' => $data_wisata->kode_kecamatan,
-                        'kelurahan_selected' => $data_wisata->kode_kelurahan,
-                );
+							$data = array(
+											'polygon' => $polygon,
+											'data_wisata' => $data_wisata,
+											'kabupaten' => $this->Data_Wisata_Model->get_kabupaten(),
+											'kecamatan' => $this->Data_Wisata_Model->get_kecamatan(),
+											'kelurahan' => $this->Data_Wisata_Model->get_kelurahan(),
+											'kabupaten_selected' => $data_wisata->kode_kabupaten,
+											'kecamatan_selected' => $data_wisata->kode_kecamatan,
+											'kelurahan_selected' => $data_wisata->kode_kelurahan,
+							);
 
-                $this->load->view('admindinas/header');
-                $this->load->view('admindinas/ubahDataWisata', $data);
-                $this->load->view('admindinas/footer');
+							$this->load->view('admindinas/header');
+							$this->load->view('admindinas/ubahDataWisata', $data);
+							$this->load->view('admindinas/footer');
         }
 
         public function actioneditwisata()
@@ -327,21 +338,39 @@ class Admin_Dinas extends CI_Controller
             );
             $this->Data_Wisata_Model->update($kode_wisata,$data);
 
-            redirect('Pemilik_Wisata/data_wisata','refresh');
+            redirect('Admin_Dinas/data_wisata','refresh');
     }
 
-    public function hapuswisata($id)
+		public function aktifwisata($id)
     {
         $row = $this->Data_Wisata_Model->get_by_id($id);
 
         if ($row) {
-            $this->Data_Wisata_Model->nonaktif($id);
-            $this->session->set_flashdata('message', 'Delete Record Success');
-            redirect(site_url('Pemilik_Wisata/data_wisata'));
+					if ($row->aktif=='Y') {
+						$this->Data_Wisata_Model->nonaktif($id);
+					} else if ($row->aktif=='T'){
+            $this->Data_Wisata_Model->aktif($id);
+					}
+            $this->session->set_flashdata('message', 'Update Record Success');
+            redirect(site_url('Admin_Dinas/data_wisata'));
         } else {
             $this->session->set_flashdata('message', 'Record Not Found');
-            redirect(site_url('Pemilik_Wisata/data_wisata'));
+            redirect(site_url('Admin_Dinas/data_wisata'));
         }
+    }
+
+    public function hapuswisata($id)
+    {
+			$row = $this->Data_Wisata_Model->get_by_id($id);
+
+			if ($row) {
+					$this->Data_Wisata_Model->hapus($id);
+					$this->session->set_flashdata('message', 'Delete Record Success');
+					redirect(site_url('Admin_Dinas/data_wisata'));
+			} else {
+					$this->session->set_flashdata('message', 'Record Not Found');
+					redirect(site_url('Admin_Dinas/data_wisata'));
+			}
     }
 
     function data_kecamatan(){
