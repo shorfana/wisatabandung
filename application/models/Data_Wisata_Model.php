@@ -40,6 +40,12 @@ function get_by_id($id)
     return $this->db->get($this->table)->row();
 }
 
+function get_by_kabupaten($kode_kabupaten)
+{
+    $sql="Select * from `data_wisata` where `dihapus`='T' and `kode_kabupaten`=$kode_kabupaten";
+    return $this->db->query($sql)->result();
+}
+
 // get total rows
 function total_rows($q = NULL) {
     $this->db->like('kode_wisata', $q);
