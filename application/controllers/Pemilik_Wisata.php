@@ -31,7 +31,8 @@ class Pemilik_Wisata extends CI_Controller
 		}
 
 		function data_wisata(){
-			$data_wisata=$this->Data_Wisata_Model->get_wisata_aktif();
+			$id_pemilikwisata=$this->session->userdata('id_pemilikwisata');
+			$data_wisata=$this->Data_Wisata_Model->get_wisata_aktif_byId($id_pemilikwisata);
 			$data = array(
 				'data_wisata' => $data_wisata , );
 			$this->load->view('pemilikwisata/header');
@@ -40,16 +41,19 @@ class Pemilik_Wisata extends CI_Controller
     }
 
 		function editprofile(){
-		$email = $this->session->userdata('email');	
+		$id = $this->session->userdata('id_pemilikwisata');
 		// $data['pemilik_wisata']= $this->Dbs_pw->getDatapw($email)->result();
-		$pemilik_wisata=$this->Dbs_pw->get_by_id($email);
+		$pemilik_wisata=$this->Dbs_pw->get_by_id($id);
+
 		$data = array(
+
 			'pemilik_wisata' => $pemilik_wisata , );
-		
+
         $this->load->view('pemilikwisata/header');
         $this->load->view('pemilikwisata/editProfilePw',$data);
         $this->load->view('pemilikwisata/footer');
-    }
+
+	}
 
     function editprofileact()
     {
@@ -77,6 +81,8 @@ class Pemilik_Wisata extends CI_Controller
 
 		function tambahwisata()
 		{
+
+			if(!empty($this->session->userdata('NIP'))){
 			$data = array(
             'kabupaten' => $this->Dbs_CRUD->get_kabupaten(),
             'kecamatan' => $this->Dbs_CRUD->get_kecamatan(),
@@ -88,6 +94,9 @@ class Pemilik_Wisata extends CI_Controller
 			$this->load->view('pemilikwisata/header');
 			$this->load->view('pemilikwisata/tambahDataWisata',$data);
 			$this->load->view('pemilikwisata/footer');
+		} else {
+			echo "<script type='text/javascript'>alert('Akun anda belum di aktivasi admin!!'); document.location='http://localhost/wisatabandung/Pemilik_Wisata/data_wisata' </script>";
+		}
 		}
 
 		function actiontambahwisata(){
@@ -100,6 +109,7 @@ class Pemilik_Wisata extends CI_Controller
 						$kode_kabupaten=$_POST['kabupaten'];
 						$kode_kecamatan=$_POST['kecamatan'];
 						$kode_kelurahan=$_POST['kelurahan'];
+						$id_pemilikwisata = $this->session->userdata('id_pemilikwisata');
 		        $data=array(
 		            'kode_wisata' => $kode_wisata,
 		            'nama_wisata' => $nama_wisata,
@@ -109,7 +119,8 @@ class Pemilik_Wisata extends CI_Controller
 								'deskripsi'=>$deskripsi,
 								'kode_kabupaten'=>$kode_kabupaten,
 								'kode_kecamatan'=>$kode_kecamatan,
-								'kode_kelurahan'=>$kode_kelurahan
+								'kode_kelurahan'=>$kode_kelurahan,
+								'id_pemilikwisata' => $id_pemilikwisata
 		        );
 		        $sql=$this->Data_Wisata_Model->insert($data);
 						//upload gambar
@@ -151,7 +162,7 @@ class Pemilik_Wisata extends CI_Controller
 		    }
 
 		// untuk edit
-		public function editwisata($kode_wisata)
+ function editwisata($kode_wisata)
 		{
 			$data_wisata=$this->Data_Wisata_Model->get_by_id($kode_wisata);
 				// realnya ambil data dari database, misalnya kita dapatkan data sbb:
@@ -203,7 +214,7 @@ class Pemilik_Wisata extends CI_Controller
         $row = $this->Data_Wisata_Model->get_by_id($id);
 
         if ($row) {
-            $this->Data_Wisata_Model->nonaktif($id);
+            $this->Data_Wisata_Model->hapus($id);
             $this->session->set_flashdata('message', 'Delete Record Success');
             redirect(site_url('Pemilik_Wisata/data_wisata'));
         } else {
@@ -211,7 +222,6 @@ class Pemilik_Wisata extends CI_Controller
             redirect(site_url('Pemilik_Wisata/data_wisata'));
         }
     }
-
 
 }
  ?>

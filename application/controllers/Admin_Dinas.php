@@ -1,6 +1,6 @@
-<?php 
+<?php
 /**
- * 
+ *
  */
 class Admin_Dinas extends CI_Controller
 {
@@ -11,11 +11,12 @@ class Admin_Dinas extends CI_Controller
         $this->load->model('Dbs_CRUD');
         $this->load->model('Dbs_pw');
          $this->load->model('Data_Wisata_Model');
+				 $this->load->model('Dbs_Polygon');
     	$this->load->helper('url');
         if ($this->session->userdata('status')!='admin_dinas') {
             redirect(base_url()."Login");
         }
-    }	
+    }
 
     function index(){
         if ($this->session->userdata('status')!='admin_dinas') {
@@ -94,7 +95,7 @@ class Admin_Dinas extends CI_Controller
             echo "<script type='text/javascript'>alert('Berhasil Menambahkan Pemilik Wisata'); document.location='http://localhost/wisatabandung/Admin_Dinas/Pemilik_Wisata' </script>";
         }else{
             echo "<script type='text/javascript'>alert('Berhasil Menambahkan Pemilik Wisata'); document.location='http://localhost/wisatabandung/Admin_Dinas/vTambahPemilikwisata' </script>";
-            
+
         }
     }
 
@@ -143,8 +144,8 @@ class Admin_Dinas extends CI_Controller
             'tgl_lahir' => $tgl_lahir,
             'foto_ktp' => $foto_ktp
         );
-        $sql=$this->Dbs_CRUD->update($data,'pemilik_wisata','email',$email);        
-        echo "<script type='text/javascript'>alert('Data Berhasil Diubah'); document.location='http://localhost/wisatabandung/Admin_Dinas/Pemilik_Wisata' </script>";  
+        $sql=$this->Dbs_CRUD->update($data,'pemilik_wisata','email',$email);
+        echo "<script type='text/javascript'>alert('Data Berhasil Diubah'); document.location='http://localhost/wisatabandung/Admin_Dinas/Pemilik_Wisata' </script>";
     }
 
     function aktifPw($id_pemilikwisata){
@@ -154,7 +155,7 @@ class Admin_Dinas extends CI_Controller
         $data=array(
             'nip' => $nip
         );
-        
+
         if (empty($ceknip)){
             $sql=$this->Dbs_CRUD->update($data,'pemilik_wisata','id_pemilikwisata',$id_pemilikwisata);
             if ($sql) {
@@ -197,13 +198,13 @@ class Admin_Dinas extends CI_Controller
         $data=array(
             'dihapus' => $dihapus
         );
-        $sql=$this->Dbs_CRUD->update($data,'pemilik_wisata','email',$email);    
+        $sql=$this->Dbs_CRUD->update($data,'pemilik_wisata','email',$email);
         if($dihapus == 'Y'){
-            echo "<script type='text/javascript'>alert('Data Berhasil Dihapus'); document.location='http://localhost/wisatabandung/Admin_Dinas/Pemilik_Wisata' </script>";  
+            echo "<script type='text/javascript'>alert('Data Berhasil Dihapus'); document.location='http://localhost/wisatabandung/Admin_Dinas/Pemilik_Wisata' </script>";
         }else{
-            echo "<script type='text/javascript'>alert('Data Berhasil Direstore'); document.location='http://localhost/wisatabandung/Admin_Dinas/Pemilik_Wisata' </script>"; 
+            echo "<script type='text/javascript'>alert('Data Berhasil Direstore'); document.location='http://localhost/wisatabandung/Admin_Dinas/Pemilik_Wisata' </script>";
         }
-                  
+
     }
 
     function tambahwisata()
@@ -341,7 +342,7 @@ class Admin_Dinas extends CI_Controller
             $this->session->set_flashdata('message', 'Record Not Found');
             redirect(site_url('Pemilik_Wisata/data_wisata'));
         }
-    } 
+    }
 
     function data_kecamatan(){
         $kode_kabupaten=$this->session->userdata('kode_kabupaten');
@@ -377,7 +378,7 @@ class Admin_Dinas extends CI_Controller
         }else{
             echo "<script type='text/javascript'>alert('Data Gagal Ditambhakan'); document.location='http://localhost/wisatabandung/Admin_Dinas/data_kecamatan' </script>";
         }
-    }   
+    }
 
     function vUpdateKec($kode_kecamatan){
         $get = $this->Dbs_CRUD->getbykdkec($kode_kecamatan);
@@ -464,7 +465,7 @@ class Admin_Dinas extends CI_Controller
         }else{
             echo "<script type='text/javascript'>alert('Data Kelurahan Gagal Ditambhakan'); document.location='http://localhost/wisatabandung/Admin_Dinas/data_kelurahan' </script>";
         }
-    }   
+    }
 
     function vUpdateKel($kode_kelurahan){
         $get = $this->Dbs_CRUD->getbykdkel($kode_kelurahan);
@@ -509,12 +510,12 @@ class Admin_Dinas extends CI_Controller
         }else{
            echo "<script type='text/javascript'>alert('Data kelurahan Gagal hapus'); document.location='http://localhost/wisatabandung/Admin_Dinas/data_kelurahan' </script>";
         }
-    }    
+    }
 
     function deleteKel($kdkec){
         $this->Dbs_CRUD->delete('kode_kecamatan',$kdkec,'kecamatan');
         echo "<script type='text/javascript'>alert('Berhasil Dihapus'); document.location='http://localhost/wisatabandung/Admin_Dinas/data_kecamatan' </script>";
-    }    
+    }
 
 }
  ?>
