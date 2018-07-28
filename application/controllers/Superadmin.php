@@ -1,10 +1,10 @@
-<?php 
+<?php
 /**
- * 
+ *
  */
 class Superadmin extends CI_Controller
 {
-	
+
 	public function __construct(){
     	parent::__construct();
     	//Codeigniter : Write Less Do More
@@ -26,11 +26,12 @@ class Superadmin extends CI_Controller
     }
 
     function pengelolaan_data_admin_dinas(){
-        $data['admin_dinas']=$this->Dbs_sadmin->getDataadmindinas()->result();
+        $admindinas=$this->Dbs_sadmin->getDataadmindinas();
+				$data = array('admindinas' => $admindinas , );
         $this->load->view('superadmin/header');
         $this->load->view('superadmin/adminDinas',$data);
         $this->load->view('superadmin/footer');
-    }  
+    }
     function vtambahAdmindinas(){
         $data['kabupaten']=$this->Dbs_sadmin->getDatakab()->result();
         $this->load->view('superadmin/header');
@@ -42,13 +43,13 @@ class Superadmin extends CI_Controller
 
 
     function tambahAdmindinas(){ //untuk menambah admin dinas
-        $NIP=$_POST['nip'];
+        $username=$_POST['username'];
         $nama=$_POST['nama'];
         $password=$_POST['password'];
         $username_sadmin=$_POST['username_sadmin'];
         $kode_kabupaten=$_POST['kode_kabupaten'];
         $data=array( //menyatukan data menjadi array untuk dilempar ke model
-            'nip' => $NIP,
+            'username' => $username,
             'nama' => $nama,
             'password' => md5($password),
             'username_sadmin' => $username_sadmin,
@@ -61,13 +62,13 @@ class Superadmin extends CI_Controller
         }else{ //jika tidak maka yang ditampilkan seperti dibawah ini
             echo 'Admin Dinas Gagal Ditambahkan';
         }
-        
-    }    
 
-    function vUpdateadmindinas($nip){ //fungsi untuk menampilkan data admin dinas kedalam form untuk diUpdate
-        $get = $this->Dbs_CRUD->getbyNIP($nip);
+    }
+
+    function vUpdateadmindinas($username){ //fungsi untuk menampilkan data admin dinas kedalam form untuk diUpdate
+        $get = $this->Dbs_CRUD->get_by_id($username);
         $data = array(
-            'nip' => $get->NIP,
+            'username' => $get->username,
             'nama' => $get->nama,
             'password' => $get->password,
             'username_sadmin' => $get->username_sadmin,
@@ -79,14 +80,14 @@ class Superadmin extends CI_Controller
     }
 
     function pUpdateadmindinas(){// fungsi untuk melakukan update kedalam database
-        $nip=$_POST['nip'];
+        $username=$_POST['username'];
         $nama=$_POST['nama'];
         $password=$_POST['password'];
         $data=array(
             'nama' => $nama,
             'password' => $password
         );
-        $sql=$this->Dbs_CRUD->update($data,'admin_dinas','nip',$nip);
+        $sql=$this->Dbs_CRUD->update($data,'admin_dinas','username',$username);
         if ($sql) {
             echo "<script type='text/javascript'>alert('Berhasil Diubah'); document.location='http://localhost/wisatabandung/Superadmin/pengelolaan_data_admin_dinas' </script>";
         }else{
@@ -95,8 +96,8 @@ class Superadmin extends CI_Controller
     }
 
     function deleteAdmindinas(){
-        $nip=$_GET['NIP'];
-        $this->Dbs_CRUD->delete('NIP',$nip,'admin_dinas');
+        $username=$_GET['username'];
+        $this->Dbs_CRUD->deleteAdmin($username);
         echo "<script type='text/javascript'>alert('Berhasil Dihapus'); document.location='http://localhost/wisatabandung/Superadmin/pengelolaan_data_admin_dinas' </script>";
     }
 }

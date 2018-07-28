@@ -1,6 +1,6 @@
-<?php 
+<?php
 /**
- * 
+ *
  */
 class Login extends CI_Controller
 {
@@ -10,15 +10,15 @@ class Login extends CI_Controller
     	//Codeigniter : Write Less Do More
     	$this->load->model('Dbs_login');
     	$this->load->helper('url');
-        
-        
-   
+
+
+
     }
 
     function index(){
-        
+
         $this->load->view('pemilikwisata/login_pemilik_wisata');
-    }	
+    }
 
 
     //fungsi untuk proses login super admin dan admin dinas
@@ -31,12 +31,12 @@ class Login extends CI_Controller
     		'username' => $username,
     		'password' => md5($password)
     	);
-    	if($this->Dbs_login->cek_login("super_admin",$where)->num_rows()>0){// cek ke tabel super admin 
+    	if($this->Dbs_login->cek_login("super_admin",$where)->num_rows()>0){// cek ke tabel super admin
     		$data_session = array(
                 'username' => $username,
                 'status' => "superadmin"
                 );
- 
+
             $this->session->set_userdata($data_session);
             redirect(base_url("Superadmin"));
     	}else if($this->Dbs_login->cek_login("admin_dinas",$where)->num_rows()>0){ //cek ke tabel admin dinas
@@ -67,8 +67,8 @@ class Login extends CI_Controller
 
     function admin(){
         $this->load->view('Login');
-    }  
-  
+    }
+
     function pemilik_wisata_act(){
         $email=$this->input->post('email');
         $password=$this->input->post('password');
@@ -81,10 +81,12 @@ class Login extends CI_Controller
             'password' => md5($password),
             'aktif' => $aktif
         );
-        if($this->Dbs_login->cek_login("pemilik_wisata",$where)->num_rows()>0){// cek ke tabel super admin 
+        if($this->Dbs_login->cek_login("pemilik_wisata",$where)->num_rows()>0){// cek ke tabel super admin
                     if ($aktif == 'Y') {
                         $data_session = array(
                         'email' => $email,
+												'id_pemilikwisata' => $get->id_pemilikwisata,
+												'NIP' => $get->NIP,
                         'nama' => $get->nama,
                         'status' => 'pemilik_wisata'
                         );
@@ -94,7 +96,7 @@ class Login extends CI_Controller
                         echo "<script type='text/javascript'>alert('Akun Anda Sedang Nonaktif'); document.location='http://localhost/wisatabandung/Login/' </script>";
                     }
 
-            
+
             }else{
                 echo "<script type='text/javascript'>alert('Username atau password Salah!!!'); document.location='http://localhost/wisatabandung/Login/' </script>";
             }
@@ -104,9 +106,9 @@ class Login extends CI_Controller
     function lupaPassword(){
         $this->load->view('superadmin/lupasPassword');
 
-    }    
+    }
 
-    
+
     public function email($subject,$isi,$emailtujuan){
 
           $config['protocol'] = 'smtp';
@@ -128,38 +130,38 @@ class Login extends CI_Controller
           $this->email->message($isi);
           $this->email->set_mailtype('html');
           $this->email->send();
-    }   
+    }
 
 
     function lupa_password(){
         $this->load->view('pemilikwisata/lupaPassword');
     }
 
-    function lupaPassword_act(){//fungsi untuk memproses lupa password 
-            $email = $this->input->post('email');           
-            $cekEmailUser = $this->Dbs_login->getEmailUser($email);   
+    function lupaPassword_act(){//fungsi untuk memproses lupa password
+            $email = $this->input->post('email');
+            $cekEmailUser = $this->Dbs_login->getEmailUser($email);
             $cek=$cekEmailUser->num_rows();
 
                 //password baru
             if ($cek>0) {
                 $get=$cekEmailUser->row();
-                $pass="129FAasdsk25kwBjakjDlff"; 
-                $panjang='8'; 
+                $pass="129FAasdsk25kwBjakjDlff";
+                $panjang='8';
                 $len=strlen($pass);
-                $start=$len-$panjang; 
+                $start=$len-$panjang;
                 $xx=rand('0',$start);
                 $yy=str_shuffle($pass);
                 $passwordbaru=substr($yy, $xx, $panjang);
                 $data['password'] = md5($passwordbaru);
                 $isiemail='ini password baru anda '.$passwordbaru.' <br>
-                <a href="http://localhost/wisatabandung/Login/">LOGIN klik DIsini!!!</a>';
+                <a href="http://localhost/wisatabandung/Login/pemilik_wisata/">LOGIN klik DIsini!!!</a>';
                 $this->Dbs_login->ubahpasswordUser($email, $data);
                 $this->email('Email Anda',$isiemail,$email);
-                echo "<script type='text/javascript'>alert('Password Baru Sudah terkirim ke email anda'); document.location='http://localhost/wisatabandung/Login' </script>";
+                echo "<script type='text/javascript'>alert('Password Baru Sudah terkirim ke email anda'); document.location='http://localhost/wisatabandung/Login/pemilik_wisata' </script>";
                     }
-                echo "<script type='text/javascript'>alert('Email Anda belum terdaftar'); document.location='http://localhost/wisatabandung/Login/lupaPassword' </script>";
+                echo "<script type='text/javascript'>alert('Email Anda belum terdaftar'); document.location='http://localhost/Igniterhotel/Login/lupaPassword' </script>";
 
-            }    
+            }
 
 
     function logout(){
