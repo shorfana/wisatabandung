@@ -24,6 +24,11 @@ function get_wisata_aktif_byId($id){
   return $this->db->query($sql)->result();
     }
 
+    function get_wisata_export(){
+  $sql="SELECT `nama_wisata`, `latitude`, `longitude`, `alamat`, `nama_kelurahan`, `nama_kecamatan`, `nama_kabupaten` FROM `data_wisata` JOIN `kabupaten` USING(kode_kabupaten) JOIN `kecamatan` USING(kode_kecamatan) JOIN `kelurahan` USING(kode_kelurahan)";
+  return $this->db->query($sql)->result();
+    }
+
 function get_wisata_aktif(){
   $sql="Select * from `data_wisata` where `dihapus`='T'";
   return $this->db->query($sql)->result();
