@@ -28,6 +28,15 @@
         <script src="<?php echo base_url() ?>dark/assets/plugins/raphael/raphael-min.js"></script>
 
         <!-- Dashboard init -->
+        <script type="text/javascript">
+            
+            var dataExplicit=[
+             { y: 'Bandung', a: 50,},
+            { y: 'Bandung Barat', a: 75},
+            { y: 'Cimahi', a: 30},
+            { y: 'Kab Bandung', a: 50}
+          ];
+        </script>
         <script src="<?php echo base_url() ?>dark/assets/pages/jquery.dashboard.js"></script>
 
         <!-- App js -->
@@ -75,6 +84,26 @@
         <script src="<?php echo base_url() ?>dark/assets/plugins/datatables/vfs_fonts.js"></script>
         <script src="<?php echo base_url() ?>dark/assets/plugins/datatables/buttons.html5.min.js"></script>
         <script src="<?php echo base_url() ?>dark/assets/plugins/datatables/buttons.print.min.js"></script>
+        <!--Morris Chart-->
+        <script src="<?php echo base_url() ?>dark/assets/pages/jquery.morris.init.js"></script>
+
+        <!-- Flot chart -->
+        <script src="<?php echo base_url() ?>dark/assets/plugins/flot-chart/jquery.flot.min.js"></script>
+        <script src="<?php echo base_url() ?>dark/assets/plugins/flot-chart/jquery.flot.time.js"></script>
+        <script src="<?php echo base_url() ?>dark/assets/plugins/flot-chart/jquery.flot.tooltip.min.js"></script>
+        <script src="<?php echo base_url() ?>dark/assets/plugins/flot-chart/jquery.flot.resize.js"></script>
+        <script src="<?php echo base_url() ?>dark/assets/plugins/flot-chart/jquery.flot.pie.js"></script>
+        <script src="<?php echo base_url() ?>dark/assets/plugins/flot-chart/jquery.flot.selection.js"></script>
+        <script src="<?php echo base_url() ?>dark/assets/plugins/flot-chart/jquery.flot.stack.js"></script>
+        <script src="<?php echo base_url() ?>dark/assets/plugins/flot-chart/jquery.flot.orderBars.min.js"></script>
+        <script src="<?php echo base_url() ?>dark/assets/plugins/flot-chart/jquery.flot.crosshair.js"></script>
+        <script src="<?php echo base_url() ?>dark/assets/pages/jquery.flot.init.js"></script>
+
+        <!-- KNOB JS -->
+        <!--[if IE]>
+        <script type="text/javascript" src="assets/plugins/jquery-knob/excanvas.js"></script>
+        <![endif]-->
+        <script src="<?php echo base_url() ?>dark/assets/plugins/jquery-knob/jquery.knob.js"></script>        
 
         <!-- Key Tables -->
         <script src="<?php echo base_url() ?>dark/assets/plugins/datatables/dataTables.keyTable.min.js"></script>

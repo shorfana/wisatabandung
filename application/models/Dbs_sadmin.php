@@ -20,5 +20,7 @@ class Dbs_sadmin extends CI_Model
 	    $this->db->where($this->id, $id);
 	    return $this->db->get($this->table)->row();
 	}
+
+	
 }
  ?>

@@ -85,7 +85,7 @@
 									<i class="ddl-switch fa fa-angle-down"></i>
 									<ul class="dropdown-menu">
 										<li><a href="<?php echo base_url() ?>Login/" >Login Pemilik Wisata</a></li>
-										<li><a href="<?php echo base_url() ?>Login/Admin" >Login Admin</a></li>
+										<li><a href="<?php echo base_url() ?>Login/admin" >Login Admin</a></li>
 									</ul>
 								</li>
 								
@@ -363,12 +363,12 @@
 						<!-- Destination Box -->
 						<div class="col-md-4 col-sm-6 col-xs-6 destination-box">
 							<div class="destination-content">
-								<img src="<?php echo base_url() ?>maxadventure/images/destination-1.jpg" alt="Destination" />
-								<h3><span>kathmandu</span></h3>
+								<img src="<?php echo base_url() ?>maxadventure/gambar/a/1.jpg" alt="Destination" />
+								<h3><span>Up Side Down</span></h3>
 								<div class="destination-content-box">
-									<h4>Nepal Travel<br> With Me </h4>
-									<h5>Duration : <span>6 Months</span></h5>
-									<h2>$1999 <sub>$2500</sub><span>Per Person</span></h2>
+									<h4>Kota bandung<br> senin - minggu </h4>
+									<h5>jam buka<span>10.00 - 19.00 wib</span></h5>
+									<h2>Rp.100.000<span>Perorang</span></h2>
 									<span>
 										<i class="fa fa-star"></i>
 										<i class="fa fa-star"></i>
@@ -388,12 +388,12 @@
 						<!-- Destination Box -->
 						<div class="col-md-4 col-sm-6 col-xs-6 destination-box">
 							<div class="destination-content">
-								<img src="<?php echo base_url() ?>maxadventure/images/destination-2.jpg" alt="Destination" />
-								<h3><span>Europe</span></h3>
+								<img src="<?php echo base_url() ?>maxadventure/gambar/a/2kbb.jpg" alt="Destination" />
+								<h3><span>Imah Seniman</span></h3>
 								<div class="destination-content-box">
-									<h4>Europe Travel<br> With Me </h4>
-									<h5>Duration : <span>6 Months</span></h5>
-									<h2>$1999 <sub>$2500</sub><span>Per Person</span></h2>
+									<h4>Kabupaten Bandung Barat<br>setiap hari</h4>
+									<h5>Jam buka<span>24 jam</span></h5>
+									<h2>Rp.420.000 <span>Per kamar</span></h2>
 									<span>
 										<i class="fa fa-star"></i>
 										<i class="fa fa-star"></i>
@@ -413,12 +413,12 @@
 						<!-- Destination Box -->
 						<div class="col-md-4 col-sm-6 col-xs-6 destination-box">
 							<div class="destination-content">
-								<img src="<?php echo base_url() ?>maxadventure/images/destination-3.jpg" alt="Destination" />
-								<h3><span>lisbon</span></h3>
+								<img src="<?php echo base_url() ?>maxadventure/gambar/a/3kb.jpg"alt="Destination" />
+								<h3><span>Ranca Upas</span></h3>
 								<div class="destination-content-box">
-									<h4>Portugal Travel<br> With Me </h4>
-									<h5>Duration : <span>6 Months</span></h5>
-									<h2>$1999 <sub>$2500</sub><span>Per Person</span></h2>
+									<h4>kabupaten bandung<br> setiap hari </h4>
+									<h5>jam buka<span>24 jam</span></h5>
+									<h2>Rp.15.000<span>Perorang</span></h2>
 									<span>
 										<i class="fa fa-star"></i>
 										<i class="fa fa-star"></i>
@@ -438,12 +438,12 @@
 						<!-- Destination Box -->
 						<div class="col-md-4 col-sm-6 col-xs-6 destination-box">
 							<div class="destination-content">
-								<img src="<?php echo base_url() ?>maxadventure/images/destination-4.jpg" alt="Destination" />
-								<h3><span>barcelona</span></h3>
+								<img src="<?php echo base_url() ?>maxadventure/gambar/a/4cmh.jpg" alt="Destination" />
+								<h3><span>Taman Bunga Cihideng</span></h3>
 								<div class="destination-content-box">
-									<h4>barcelona Travel<br> With Me </h4>
-									<h5>Duration : <span>6 Months</span></h5>
-									<h2>$1999 <sub>$2500</sub><span>Per Person</span></h2>
+									<h4>Cimahi<br> setiap hari</h4>
+									<h5>jam buka<span>08.00 - 17.00 wib</span></h5>
+									<h2>Rp.5000 <span>Perorang</span></h2>
 									<span>
 										<i class="fa fa-star"></i>
 										<i class="fa fa-star"></i>
@@ -463,12 +463,12 @@
 						<!-- Destination Box -->
 						<div class="col-md-4 col-sm-6 col-xs-6 destination-box">
 							<div class="destination-content">
-								<img src="<?php echo base_url() ?>maxadventure/images/destination-5.jpg" alt="Destination" />
-								<h3><span>greek Island</span></h3>
+								<img src="<?php echo base_url() ?>maxadventure/gambar/a/5cmh.jpg" alt="Destination" />
+								<h3><span>Kampung Buyut Cimahi</span></h3>
 								<div class="destination-content-box">
-									<h4>greek Island Travel<br> With Me </h4>
-									<h5>Duration : <span>6 Months</span></h5>
-									<h2>$1999 <sub>$2500</sub><span>Per Person</span></h2>
+									<h4>Cimahi<br> setiap hari </h4>
+									<h5>jam buka <span>08.00 - 22.00 wib</span></h5>
+									<h2>gratis<span>Perorang</span></h2>
 									<span>
 										<i class="fa fa-star"></i>
 										<i class="fa fa-star"></i>
@@ -488,12 +488,12 @@
 						<!-- Destination Box -->
 						<div class="col-md-4 col-sm-6 col-xs-6 destination-box">
 							<div class="destination-content">
-								<img src="<?php echo base_url() ?>maxadventure/images/destination-6.jpg" alt="Destination" />
-								<h3><span>sydney</span></h3>
+								<img src="<?php echo base_url() ?>maxadventure/gambar/a/6kb.jpg" alt="Destination" />
+								<h3><span>The lodge maribaya</span></h3>
 								<div class="destination-content-box">
-									<h4>Australia Travel<br> With Me </h4>
-									<h5>Duration : <span>6 Months</span></h5>
-									<h2>$1999 <sub>$2500</sub><span>Per Person</span></h2>
+									<h4>kabupaten bandung barat<br> Setiap hari </h4>
+									<h5>jam buka<span>09.00 - 17.00 wib</span></h5>
+									<h2>Rp.20.000<span>Perorang</span></h2>
 									<span>
 										<i class="fa fa-star"></i>
 										<i class="fa fa-star"></i>
@@ -524,32 +524,32 @@
 						<div class="col-md-3 col-sm-6 col-xs-6 counter-box">
 							<div class="counter-details">
 								<i><img src="<?php echo base_url() ?>maxadventure/images/counter-icon1.png" alt="Counter" /></i>
-								<h3><span class="count" id="statistics_count-1" data-statistics_percent="225"> &nbsp;</span></h3>
-								<p>Photographs</p>
+								<h3><span class="count" id="statistics_count-1" data-statistics_percent="<?php echo $kotban->wisata ?>"> &nbsp;</span></h3>
+								<p>Kota Bandung</p>
 							</div>
 						</div><!-- Counter Box /- -->
 						<!-- Counter Box -->
 						<div class="col-md-3 col-sm-6 col-xs-6 counter-box">
 							<div class="counter-details">
 								<i><img src="<?php echo base_url() ?>maxadventure/images/counter-icon2.png" alt="Counter" /></i>
-								<h3><span class="count" id="statistics_count-2" data-statistics_percent="135"> &nbsp;</span></h3>
-								<p>travel places</p>
+								<h3><span class="count" id="statistics_count-2" data-statistics_percent="<?php echo $banrat->wisata ?>"> &nbsp;</span></h3>
+								<p>Kabupaten Bandung Barat</p>
 							</div>
 						</div><!-- Counter Box /- -->
 						<!-- Counter Box -->
 						<div class="col-md-3 col-sm-6 col-xs-6 counter-box">
 							<div class="counter-details">
 								<i><img src="<?php echo base_url() ?>maxadventure/images/counter-icon3.png" alt="Counter" /></i>
-								<h3><span class="count" id="statistics_count-3" data-statistics_percent="186"> &nbsp;</span></h3>
-								<p>vehicles</p>
+								<h3><span class="count" id="statistics_count-3" data-statistics_percent="<?php echo $kabban->wisata ?>"> &nbsp;</span></h3>
+								<p>Kabupaten Bandung</p>
 							</div>
 						</div><!-- Counter Box /- -->
 						<!-- Counter Box -->
 						<div class="col-md-3 col-sm-6 col-xs-6 counter-box">
 							<div class="counter-details">
 								<i><img src="<?php echo base_url() ?>maxadventure/images/counter-icon4.png" alt="Counter" /></i>
-								<h3><span class="count" id="statistics_count-4" data-statistics_percent="275"> &nbsp;</span></h3>
-								<p>happy clients</p>
+								<h3><span class="count" id="statistics_count-4" data-statistics_percent="<?php echo $cimahi->wisata ?>"> &nbsp;</span></h3>
+								<p>Cimahi</p>
 							</div>
 						</div><!-- Counter Box /- -->
 					</div><!-- Row /- -->
@@ -567,25 +567,25 @@
 					</div><!-- Section Header /- -->
 					<div class="row blog-block">
 						<div class="col-md-6 col-sm-6 col-xs-12 entry-cover">
-							<a href="#"><img src="<?php echo base_url() ?>maxadventure/images/latest-blog.jpg" alt="Latest Blog" /></a>
+							<a href="#"><img src="<?php echo base_url() ?>maxadventure/gambar/a/1q.jpg" alt="Latest Blog" /></a>
 						</div>
 						<div class="col-md-6 col-sm-6 col-xs-12 entry-blog">
-							<h3 class="entry-title"><a href="#">Boy the way Glen Miller played. Songs that made the hit parade. Guys like us we had it made. </a></h3>
+							<h3 class="entry-title"><a href="#">Thr Ir.juanda dinobatkan sebagai taman hutan tropis terbesar di indonesia </a></h3>
 							<div class="post-meta">
 								<span><i class="fa fa-heart-o"></i><a href="#">25 Likes</a></span>
 								<span><i class="fa fa-comment-o"></i><a href="#">35 Comments</a></span>
 								<span class="byline">By <a href="#">Admin</a></span>
 							</div>
 							<div class="entry-content">
-								<p>The mate was a mighty sailin' man the Skipper brave and sure. passengers set sail that day for a three hour tour a three hour tour. And if you thre wparty - invited everyone you knew. You would see the biggest gift would be from me and the card attached would say thank you. </p>
+								<p>Thr ir juanda di nobatkan oleh wwf sebagai hutan tropis terbeesar di indonesia , penobatan ini mengalahkan pesainya yaitu hutan di kalimantan timur sebagai saingan hutan yang bebasis taman </p>
 							</div>
 							<div class="post-category">
 								<i class="icon icon-Tag"></i>
-								<a href="#" title="Hiking">Hiking</a>
+								<a href="#" title="Hiking">bandung</a>
 								<a href="#" title="Sailing">Sailing</a>
 								<a href="#" title="Travelling">Travelling</a>
 							</div>
-							<a href="#" title="Read More">Read More</a>
+
 						</div>
 					</div>
 				</div><!-- Container /- -->
@@ -599,10 +599,10 @@
 					<div class="blog-carousel">
 						<div class="item col-md-12 col-sm-12 col-xs-12 no-padding">
 							<div class="blog-thumb-block">
-								<a href="#"><img src="<?php echo base_url() ?>maxadventure/images/blog-thumb1.jpg" alt="Blog" /></a>
-								<h3><a href="#">explore strange new worlds to seek out.</a></h3>
+								<a href="#"><img src="<?php echo base_url() ?>maxadventure/gambar/a/tega.jpg" alt="Blog" /></a>
+								<h3><a href="#">Tempat bersejarah di bandung.</a></h3>
 								<div class="post-meta">
-									<span class="post-date"><a href="#">August 16, 2016</a></span>
+									<span class="post-date"><a href="#">februari 16, 2018</a></span>
 									<span class="byline">By <a href="#">Admin</a></span>
 									<span><i class="fa fa-heart-o"></i><a href="#">25 Likes</a></span>
 									<span><i class="fa fa-comment-o"></i><a href="#">35 Comments</a></span>
@@ -611,8 +611,8 @@
 						</div>
 						<div class="item col-md-12 col-sm-12 col-xs-12 no-padding">
 							<div class="blog-thumb-block">
-								<a href="#"><img src="<?php echo base_url() ?>maxadventure/images/blog-thumb2.jpg" alt="Blog" /></a>
-								<h3><a href="#">friends neighbors there that's where we meet.</a></h3>
+								<a href="#"><img src="<?php echo base_url() ?>maxadventure/gambar/a/tj.jpg" alt="Blog" /></a>
+								<h3><a href="#">taman impian bagi para jomblo</a></h3>
 								<div class="post-meta">
 									<span class="post-date"><a href="#">janury 12, 2016</a></span>
 									<span class="byline">By <a href="#">Admin</a></span>
@@ -623,8 +623,8 @@
 						</div>
 						<div class="item col-md-12 col-sm-12 col-xs-12 no-padding">
 							<div class="blog-thumb-block">
-								<a href="#"><img src="<?php echo base_url() ?>maxadventure/images/blog-thumb3.jpg" alt="Blog" /></a>
-								<h3><a href="#">Those were the day. The mate was a mighty</a></h3>
+								<a href="#"><img src="<?php echo base_url() ?>maxadventure/gambar/a/tl.jpg" alt="Blog" /></a>
+								<h3><a href="#">taman lansia tidak khusus untuk usia semja</a></h3>
 								<div class="post-meta">
 									<span class="post-date"><a href="#">March 18, 2016</a></span>
 									<span class="byline">By <a href="#">Admin</a></span>
@@ -635,8 +635,8 @@
 						</div>
 						<div class="item col-md-12 col-sm-12 col-xs-12 no-padding">
 							<div class="blog-thumb-block">
-								<a href="#"><img src="<?php echo base_url() ?>maxadventure/images/blog-thumb2.jpg" alt="Blog" /></a>
-								<h3><a href="#">friends neighbors there that's where we meet.</a></h3>
+								<a href="#"><img src="<?php echo base_url() ?>maxadventure/gambar/a/tf.jpg" alt="Blog" /></a>
+								<h3><a href="#">taman film selalu mengdakan nobar film terbaru</a></h3>
 								<div class="post-meta">
 									<span class="post-date"><a href="#">janury 12, 2016</a></span>
 									<span class="byline">By <a href="#">Admin</a></span>
@@ -703,8 +703,8 @@
 				<div class="container">
 					<!-- Section Header -->
 					<div class="section-header">
-						<h3>Fabulous Places</h3>
-						<h6>our gallery</h6>
+						<h3>Tempat Wisata</h3>
+						<h6>galer kami</h6>
 					</div><!-- Section Header /- -->
 				</div><!-- Container /- -->
 				
@@ -825,18 +825,18 @@
 				<div class="container">
 					<!-- Section Header -->
 					<div class="section-header">
-						<h3>Great Guidelines</h3>
-						<h6>our team</h6>
+						<h3>Tempat Wisata</h3>
+						<h6>Galeri kami</h6>
 					</div><!-- Section Header /- -->
 					<div class="row">
 						<div class="team-carousel">
 							<!-- Team Box -->
 							<div class="col-md-12 col-sm-12 col-xs-12 team-box">
 								<div class="team-content">
-									<img src="<?php echo base_url() ?>maxadventure/images/team-1.jpg" alt="Team" />
+									<img src="<?php echo base_url() ?>maxadventure/gambar/a/a.jpg" alt="Team" />
 									<div class="team-content-box">
 										<i class="fa fa-male"></i>
-										<h3>john smith <span>(Hiking Guide)</span></h3>
+										<h3>Bukit jamur <span>(Kabupaten Bandung barat)</span></h3>
 										<ul>
 											<li><a href="#" title="Facebook"><i class="fa fa-facebook"></i></a></li>
 											<li><a href="#" title="Twitter"><i class="fa fa-twitter"></i></a></li>
@@ -851,10 +851,10 @@
 							<!-- Team Box -->
 							<div class="col-md-12 col-sm-12 col-xs-12 team-box">
 								<div class="team-content">
-									<img src="<?php echo base_url() ?>maxadventure/images/team-2.jpg" alt="Team" />
+									<img src="<?php echo base_url() ?>maxadventure/gambar/a/b.jpg" alt="Team" />
 									<div class="team-content-box">
 										<i class="fa fa-compass"></i>
-										<h3>james warner <span>(Travel Guide)</span></h3>
+										<h3> kampung cai <span>(kabupaten bandung barat)</span></h3>
 										<ul>
 											<li><a href="#" title="Facebook"><i class="fa fa-facebook"></i></a></li>
 											<li><a href="#" title="Twitter"><i class="fa fa-twitter"></i></a></li>
@@ -869,10 +869,10 @@
 							<!-- Team Box -->
 							<div class="col-md-12 col-sm-12 col-xs-12 team-box">
 								<div class="team-content">
-									<img src="<?php echo base_url() ?>maxadventure/images/team-3.jpg" alt="Team" />
+									<img src="<?php echo base_url() ?>maxadventure/gambar/a/c.jpg " alt="Team" />
 									<div class="team-content-box">
 										<i class="icon_cone_alt"></i>
-										<h3>Peter parker <span>(Mountain Guide)</span></h3>
+										<h3>kawah putih <span>(kabupaten bandung barat)</span></h3>
 										<ul>
 											<li><a href="#" title="Facebook"><i class="fa fa-facebook"></i></a></li>
 											<li><a href="#" title="Twitter"><i class="fa fa-twitter"></i></a></li>
@@ -887,10 +887,10 @@
 							<!-- Team Box -->
 							<div class="col-md-12 col-sm-12 col-xs-12 team-box">
 								<div class="team-content">
-									<img src="<?php echo base_url() ?>maxadventure/images/team-2.jpg" alt="Team" />
+									<img src="<?php echo base_url() ?>maxadventure/gambar/a/d.jpg"  alt="Team" />
 									<div class="team-content-box">
 										<i class="fa fa-male"></i>
-										<h3>john smith <span>(Hiking Guide)</span></h3>
+										<h3>ranca upas<span>(kabupaten bandung barat)</span></h3>
 										<ul>
 											<li><a href="#" title="Facebook"><i class="fa fa-facebook"></i></a></li>
 											<li><a href="#" title="Twitter"><i class="fa fa-twitter"></i></a></li>
@@ -906,7 +906,7 @@
 					</div>
 				</div><!-- Container /- -->
 			</div><!-- Team Section /- -->
-			<div id="tempat_peta" style="width:1500px;height:500px;"></div>
+			
 			<!-- Clients Section -->
 			<div class="container-fluid no-left-padding no-right-padding clients-section">
 				<!-- Container -->
@@ -935,6 +935,8 @@
 						</div>
 					</div>
 				</div><!-- Container /- -->
-				
+			</div><!-- Clients Section /- -->
+			<div id="map-canvas-contact" class="map-canvas" data-lat="41.533839" data-lng="-87.252454" data-string="123,New Street, Chicago" data-zoom="10"></div>
+		
 		</main>
 

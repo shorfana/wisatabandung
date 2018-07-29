@@ -20,6 +20,7 @@
 
         <!--Morris Chart CSS -->
         <link rel="stylesheet" href="<?php echo base_url() ?>dark/assets/plugins/morris/morris.css">
+        
 
         <!-- App css -->
         <link href="<?php echo base_url() ?>dark/assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
