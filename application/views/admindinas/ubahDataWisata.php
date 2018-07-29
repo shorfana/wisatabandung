@@ -214,11 +214,17 @@ google.maps.event.addDomListener(window, 'load', init);
       <div class="col-lg-12">
          <div class="p-20 m-b-20">
             <h4 class="header-title m-t-0">Form untuk menambahkan admin dinas</h4>
-            <p class="text-muted font-13 m-b-10">
-               Parsley is a javascript form validation library. It helps you provide your users with feedback on their form submission before sending it to your server.
-            </p>
+            <div id="maps" style="width: 900px; height: 520px; left: 0px;" ></div>
+            <div class="col-md-12">
+               <textarea class="form-control" rows="1" name="alamat" id="alamat" placeholder="Cari Alamat"></textarea>
+               <div class="row">
+                 <br>
+                 <button class="btn btn-primary" onclick="cari_alamat()" >CARI ALAMAT</button>
+               </div>
+            </div>
+            <hr>
             <div class="m-b-20">
-               <form action="<?php echo base_url() ?>/Pemilik_Wisata/actioneditwisata" class="form-validation" enctype="multipart/form-data" method="post">
+               <form action="<?php echo base_url() ?>Admin_Dinas/actioneditwisata" class="form-validation" enctype="multipart/form-data" method="post">
                   <div class="form-group">
                      <label>Kode Wisata<span class="text-danger">*</span></label>
                      <input type="text" name="kode_wisata" parsley-trigger="change" required
@@ -232,12 +238,12 @@ google.maps.event.addDomListener(window, 'load', init);
                   <div class="form-group row">
                      <div class="col-sm-6">
                         <label>Latitude<span class="text-danger">*</span></label>
-                        <input name="latitude" type="text" placeholder="Latitude" required
+                        <input id="lat" name="latitude" type="text" placeholder="Latitude" required
                            class="form-control" value="<?php echo $data_wisata->latitude ?>">
                      </div>
                      <div class="col-sm-6">
                         <label>Longitude<span class="text-danger">*</span></label>
-                        <input name="longitude" type="text" placeholder="Longitude" required
+                        <input id="lng" name="longitude" type="text" placeholder="Longitude" required
                            class="form-control" value="<?php echo $data_wisata->longitude ?>">
                      </div>
                   </div>
@@ -252,7 +258,6 @@ google.maps.event.addDomListener(window, 'load', init);
                   <div class="form-group">
                         <label>Kabupaten</label>
                         <select class="form-control" name="kabupaten" id="kabupaten">
-                            <option value="">Please Select</option>
                             <?php
                             foreach ($kabupaten as $kab) {
                                 ?>
@@ -260,7 +265,7 @@ google.maps.event.addDomListener(window, 'load', init);
                                     value="<?php echo $kab->kode_kabupaten ?>"><?php echo $kab->nama_kabupaten ?></option>
                                 <?php
                             }
-                            ?>
+                            ?>>
                         </select>
                     </div>
                     <div class="form-group">

@@ -38,9 +38,15 @@ class Dbs_CRUD extends CI_Model
 		$this->db->delete($table);
 	}
 
-	function getbyNIP($nip){
-		$this->db->where('nip',$nip);
-		return $this->db->get('admin_dinas')->row();
+	// function getbyNIP($nip){
+	// 	$this->db->where('nip',$nip);
+	// 	return $this->db->get('admin_dinas')->row();
+	// }
+
+	function getkab_by_id($id)
+	{
+		$sql="SELECT * from kabupaten where `kode_kabupaten`=$id";
+		return $this->db->query($sql);
 	}
 
 	function deleteAdmin($id){

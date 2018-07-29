@@ -57,6 +57,7 @@ class Pemilik_Wisata extends CI_Controller
 
     function editprofileact()
     {
+    	$id_pemilikwisata=$this->session->userdata('id_pemilikwisata');
     	$nama=$_POST['nama'];
         $noktp=$_POST['noktp'];
         $email=$_POST['email'];
@@ -74,9 +75,13 @@ class Pemilik_Wisata extends CI_Controller
             'tgl_lahir' => $tgl_lahir
         );
 
-        $this->Dbs_pw->update($email,$data);
-
-        echo "good";
+        $sql=$this->Dbs_CRUD->update($data,'pemilik_wisata','id_pemilikwisata',$id_pemilikwisata);
+        if ($sql) {
+        	echo "<script type='text/javascript'>alert('Profil Kamu Berhasil Diubah'); document.location='http://localhost/wisatabandung/pemilik_wisata/' </script>";
+        }else {
+        	echo "<script type='text/javascript'>alert('Profil Kamu Gagal Diubah'); document.location='http://localhost/wisatabandung/pemilik_wisata/' </script>";
+        }
+		
     }
 
 		function tambahwisata()
@@ -215,11 +220,9 @@ class Pemilik_Wisata extends CI_Controller
 
         if ($row) {
             $this->Data_Wisata_Model->hapus($id);
-            $this->session->set_flashdata('message', 'Delete Record Success');
-            redirect(site_url('Pemilik_Wisata/data_wisata'));
+            echo "<script type='text/javascript'>alert('Data Wisata Berhasil Dihapus'); document.location='http://localhost/wisatabandung/Pemilik_Wisata/data_wisata' </script>";
         } else {
-            $this->session->set_flashdata('message', 'Record Not Found');
-            redirect(site_url('Pemilik_Wisata/data_wisata'));
+            echo "<script type='text/javascript'>alert('Data Wisata Gagal Dihapus'); document.location='http://localhost/wisatabandung/Pemilik_Wisata/data_wisata' </script>";
         }
     }
 

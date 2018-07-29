@@ -29,10 +29,14 @@
                                                        placeholder="Enter user name" class="form-control" id="nama">
                                             </div>
                                             <div class="form-group">
-                                                <label for="userName">Kode Kabupaten<span class="text-danger">*</span></label>
-                                                <input type="text" name="kode_kabupaten" parsley-trigger="change" required
-                                                       placeholder="Enter user name" class="form-control" id="NIP" value="<?php echo $_SESSION['kode_kabupaten'] ?>"  readonly>
+                                                <label for="userName">Nama Kabupaten<span class="text-danger">*</span></label>
+                                                <input type="text" name="" parsley-trigger="change" required
+                                                       placeholder="Enter user name" class="form-control" id="NIP" value="<?php echo $nama_kabupaten ?>"  readonly>
                                             </div>
+                                          
+                                                <input type="text" name="kode_kabupaten" parsley-trigger="change" required
+                                                       placeholder="Enter user name" class="form-control" id="NIP" value="<?php echo $_SESSION['kode_kabupaten'] ?>" hidden>
+                                            
                                             <div class="form-group">
                                                 <div class="checkbox">
                                                     <input id="remember-1" type="checkbox">

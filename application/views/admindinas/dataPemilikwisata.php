@@ -57,7 +57,7 @@
                                             <td><img src="<?php echo base_url().'fotoktp/'.$p->foto_ktp ?>" class="rounded-circle img-thumbnail" alt="profile-image"></td>
                                             <td><a href="<?php echo site_url('Admin_Dinas/aktifPw/'.$p->id_pemilikwisata) ?>">Aktifkan/Nonaktifkan</td>
                                             <td><a href="<?php echo site_url('Admin_Dinas/vUpdatepemilikwisata/'.$p->id_pemilikwisata) ?>" class="btn btn-custom btn-rounded">Ubah</a><br><br>
-                                            <a href="<?php echo site_url('Admin_Dinas/vhapus_pemilik_wisata/'.$p->id_pemilikwisata) ?>" class="btn btn-custom btn-rounded">Hapus</a></td>
+                                            <a href="<?php echo site_url('Admin_Dinas/pHapuspemilikwisata/'.$p->id_pemilikwisata) ?>" class="btn btn-custom btn-rounded">Hapus</a></td>
                                         </tr>
                                         <?php endforeach ?>
                                         </tbody>

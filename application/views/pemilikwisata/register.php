@@ -43,49 +43,49 @@
                                         <div class="form-group m-b-10">
                                             <div class="col-xs-5">
                                                 <label for="username">Nama </label>
-                                                <input class="form-control" type="text" name="nama" placeholder="Enter your Username">
+                                                <input class="form-control" type="text" name="nama" placeholder="Enter your Username" required>
                                             </div>
                                         </div>
                                         <div class="form-group m-b-10">
                                             <div class="col-xs-5">
                                                 <label for="username">Nomer KTP</label>
-                                                <input class="form-control" type="text" name="noktp" placeholder="Enter your Username">
+                                                <input class="form-control" type="text" name="noktp" placeholder="Enter your Username" required>
                                             </div>
                                         </div>
                                         <div class="form-group m-b-10">
                                             <div class="col-xs-5">
                                                 <label for="username">Email</label>
-                                                <input class="form-control" type="text" name="email" placeholder="Enter your Username">
+                                                <input class="form-control" type="text" name="email" placeholder="Enter your Username" required>
                                             </div>
                                         </div>
                                         <div class="form-group m-b-10">
                                             <div class="col-xs-5">
                                                 <label for="password">Password</label>
-                                                <input class="form-control" type="password" name="password" placeholder="Enter your password">
+                                                <input class="form-control" type="password" name="password" placeholder="Enter your password" required>
                                             </div>
                                         </div>
                                         
                                         <div class="form-group m-b-10">
                                             <div class="col-xs-5">
                                                 <label for="username">Alamat</label>
-                                                <input class="form-control" type="text" name="alamat" placeholder="Enter your Username">
+                                                <input class="form-control" type="text" name="alamat" placeholder="Enter your Username" required>
                                             </div>
                                         </div>
                                         <div class="form-group m-b-10">
                                             <div class="col-xs-5">
                                                 <label for="username">Tempat Lahir</label>
-                                                <input class="form-control" type="text" name="tempat" placeholder="Enter your Username">
+                                                <input class="form-control" type="text" name="tempat" placeholder="Enter your Username" required>
                                             </div>
                                         </div>
                                         <div class="form-group m-b-10">
                                             <div class="col-xs-5">
                                                 <label for="username">Tanggal Lahir</label>
-                                                <input class="form-control" type="text" name="tgl_lahir" placeholder="Enter your Username">
+                                                <input class="form-control" type="date" name="tgl_lahir" placeholder="Enter your Username" required>
                                             </div>
                                         </div><div class="form-group m-b-10">
                                             <div class="col-xs-5">
                                                 <label for="username">Foto KTP</label>
-                                                <input class="form-control" type="file" name="foto_ktp" placeholder="Enter your Username">
+                                                <input class="form-control" type="file" name="foto_ktp" placeholder="Enter your Username" required>
                                             </div>
                                         </div>
                                         <div class="form-group account-btn text-center m-t-10">

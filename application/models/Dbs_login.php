@@ -62,5 +62,11 @@ class Dbs_login extends CI_Model
         $this->db->update('pemilik_wisata');
     }
 
+    function cekEmail($email){
+    	$sql="SELECT email FROM pemilik_wisata WHERE email='$email'";
+    	$query = $this->db->query($sql);
+    	return $query;
+    }
+
 }
  ?>

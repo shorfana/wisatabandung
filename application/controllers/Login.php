@@ -61,7 +61,7 @@ class Login extends CI_Controller
 
 
             }else{
-                echo "<script type='text/javascript'>alert('Username atau password Salah!!!'); document.location='http://localhost/wisatabandung/Login/' </script>";
+               echo "<script type='text/javascript'>alert('Username atau password Salah!!!'); document.location='http://localhost/wisatabandung/Login/admin' </script>";
             }
         }
 
@@ -98,7 +98,7 @@ class Login extends CI_Controller
 
 
             }else{
-                echo "<script type='text/javascript'>alert('Username atau password Salah!!!'); document.location='http://localhost/wisatabandung/Login/' </script>";
+               echo "<script type='text/javascript'>alert('Username atau password Salah!!!'); document.location='http://localhost/wisatabandung/Login/' </script>";
             }
     }
 
@@ -157,7 +157,7 @@ class Login extends CI_Controller
                 <a href="http://localhost/wisatabandung/Login/pemilik_wisata/">LOGIN klik DIsini!!!</a>';
                 $this->Dbs_login->ubahpasswordUser($email, $data);
                 $this->email('Email Anda',$isiemail,$email);
-                echo "<script type='text/javascript'>alert('Password Baru Sudah terkirim ke email anda'); document.location='http://localhost/wisatabandung/Login/pemilik_wisata' </script>";
+                echo "<script type='text/javascript'>alert('Password Baru Sudah terkirim ke email anda'); document.location='http://localhost/wisatabandung/Login/' </script>";
                     }
                 echo "<script type='text/javascript'>alert('Email Anda belum terdaftar'); document.location='http://localhost/Igniterhotel/Login/lupaPassword' </script>";
 

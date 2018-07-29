@@ -25,42 +25,41 @@
                                             <div class="form-group">
                                                 <label for="userName">Nama<span class="text-danger">*</span></label>
                                                 <input type="text" name="nama" parsley-trigger="change" required
-                                                       placeholder="Enter user name" class="form-control" value="<?php echo $nama ?>" id="nama">
+                                                       placeholder="Enter user name" class="form-control" value="<?php echo $pemilik_wisata->nama ?>" id="nama">
                                             </div>
                                             <div class="form-group">
                                                 <label for="userName">NIP<span class="text-danger">*</span></label>
                                                 <input type="text" name="NIP" parsley-trigger="change" required
-                                                       placeholder="Enter user name" class="form-control" id="NIP" value="<?php echo $_SESSION['nip'] ?>"  readonly>
+                                                       placeholder="Enter user name" class="form-control" id="NIP" value="<?php echo $pemilik_wisata->NIP ?>"  readonly>
                                             </div>
                                              <div class="form-group">
                                                 <label for="userName">Nomer KTP<span class="text-danger">*</span></label>
                                                 <input type="text" name="noktp" parsley-trigger="change" required
-                                                       placeholder="Enter user name" class="form-control" value="<?php echo $noktp ?>" id="noktp">
+                                                       placeholder="Enter user name" class="form-control" value="<?php echo $pemilik_wisata->noktp ?>" id="noktp">
                                             </div>
                                             <div class="form-group">
                                                 <label for="userName">email<span class="text-danger">*</span></label>
                                                 <input type="email" name="email" parsley-trigger="change" required
-                                                       placeholder="Enter user name" class="form-control" value="<?php echo $email ?>" id="email">
+                                                       placeholder="Enter user name" class="form-control" value="<?php echo $pemilik_wisata->email ?>" id="email">
                                             </div>
                                             <div class="form-group">
                                                 <label for="pass1">Password<span class="text-danger">*</span></label>
-                                                <input id="pass1" type="password" name="password" placeholder="Password" value="<?php echo $password ?>" required
+                                                <input id="pass1" type="password" name="password" placeholder="Password" value="<?php echo $pemilik_wisata->password ?>" required
                                                        class="form-control">
                                             </div>
                                             <div class="form-group">
-                                                <label for="userName">alamat<span class="text-danger">*</span></label>
-                                                <input type="text" name="alamat" parsley-trigger="change"  required
-                                                       placeholder="Enter user name" value="<?php echo $alamat ?>" class="form-control" >
+                                                <label for="username">Alamat</label>
+                                                <textarea class="form-control" rows="1" name="alamat"> <?php echo $pemilik_wisata->alamat ?> </textarea>
                                             </div>
                                             <div class="form-group">
                                                 <label for="userName">Tempat Lahir<span class="text-danger">*</span></label>
                                                 <input type="text" name="tempat" parsley-trigger="change" required
-                                                       placeholder="Enter user name" value="<?php echo $tempat ?>" class="form-control" id="noktp">
+                                                       placeholder="Enter user name" value="<?php echo $pemilik_wisata->tempat ?>" class="form-control" id="noktp">
                                             </div>
                                             <div class="form-group">
                                                 <label for="userName">Tanggal Lahir<span class="text-danger">*</span></label>
                                                 <input type="date" name="tgl_lahir" parsley-trigger="change" required
-                                                       placeholder="Enter user name" value="<?php echo $tgl_lahir ?>" class="form-control" id="noktp">
+                                                       placeholder="Enter user name" value="<?php echo $pemilik_wisata->tgl_lahir ?>" class="form-control" id="noktp">
                                             </div>
                                             <div class="form-group">
                                                 <label for="userName">Foto KTP<span class="text-danger">*</span></label>

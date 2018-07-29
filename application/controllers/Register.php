@@ -8,6 +8,7 @@ class Register extends CI_Controller
 	public function __construct(){
     	parent::__construct();
     	$this->load->model('Dbs_Dinas');
+        $this->load->model('Dbs_login');
         $this->load->model('Dbs_CRUD');
     	$this->load->helper('url');
 	}
@@ -46,7 +47,7 @@ class Register extends CI_Controller
 		);
 		$sql=$this->Dbs_CRUD->update($data,'pemilik_wisata','noktp',$noktp); 
 		if ($sql) {
-			echo "<script type='text/javascript'>alert('Verifikasi Berhasil Silahkan LOGIN!'); document.location='http://localhost/wisatabandung/Login/pemilik_wisata' </script>";
+			echo "<script type='text/javascript'>alert('Verifikasi Berhasil Silahkan LOGIN!'); document.location='http://localhost/wisatabandung/Login' </script>";
 		}
 	}
 
@@ -67,11 +68,14 @@ class Register extends CI_Controller
         }else{
             $gambar=$this->upload->data('file_name');
         }
+        if ($this->Dbs_login->cekEmail($email)->num_rows()>0) {
+            echo "<script type='text/javascript'>alert('Email Sudah terdaftar'); document.location='http://localhost/wisatabandung/Login/' </script>";
+        }else {
         $data=array(
             'nama' => $nama,
             'noktp' => $noktp,
             'email' => $email,
-            'password' => $password,
+            'password' => md5($password),
             'alamat' => $alamat,
             'tempat' => $tempat,
             'tgl_lahir' => $tgl_lahir,
@@ -83,11 +87,12 @@ class Register extends CI_Controller
         	$this->email('Verifikasi akun',$isiemail,$email);			
             
 
-            echo "<script type='text/javascript'>alert('Berhasil Menambahkan Pemilik Wisata'); document.location='http://localhost/wisatabandung/Admin_Dinas/Pemilik_Wisata' </script>";
+            echo "<script type='text/javascript'>alert('Berhasil Menambahkan Pemilik Wisata'); document.location='http://localhost/wisatabandung/Login/' </script>";
         }else{
-            echo "<script type='text/javascript'>alert('Gagal Menambahkan Pemilik Wisata'); document.location='http://localhost/wisatabandung/Admin_Dinas/vTambahPemilikwisata' </script>";
+            echo "<script type='text/javascript'>alert('Gagal Menambahkan Pemilik Wisata'); document.location='http://localhost/wisatabandung/Login' </script>";
             
         }
     }
+ }
 }
  ?>

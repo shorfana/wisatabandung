@@ -7,7 +7,7 @@ class Dbs_Dinas extends CI_Model
 	function getpw_aktif(){
 		// $this->db->where('NIP',$nip);
 		// return $this->db->get('pemilik_wisata')->result();
-		$dml="SELECT * FROM pemilik_wisata where NIP IS NOT NULL";
+		$dml="SELECT * FROM pemilik_wisata where NIP IS NOT NULL and dihapus='T'";
 		$query=$this->db->query($dml);
 		return $query;
 	}
@@ -15,9 +15,15 @@ class Dbs_Dinas extends CI_Model
 	function getpw_nonaktif(){
 		// $this->db->where('NIP',$nip);
 		// return $this->db->get('pemilik_wisata')->result();
-		$dml="SELECT * FROM pemilik_wisata where NIP IS NULL";
+		$dml="SELECT * FROM pemilik_wisata where NIP IS NULL and dihapus='T'";
 		$query=$this->db->query($dml);
 		return $query;
+	}
+
+	function hapusPw($id)
+	{
+		$sql="UPDATE `pemilik_wisata` SET NIP = NULL, dihapus ='Y' where id_pemilikwisata=$id";
+		return $this->db->query($sql);
 	}
 
 	function getDinas(){
@@ -27,6 +33,11 @@ class Dbs_Dinas extends CI_Model
 
 	function getByemail($email){
 		$this->db->where('email',$email);
+		return $this->db->get('pemilik_wisata')->row();
+	}
+
+	function getByeid($id){
+		$this->db->where('id_pemilikwisata',$id);
 		return $this->db->get('pemilik_wisata')->row();
 	}
 
@@ -50,7 +61,7 @@ class Dbs_Dinas extends CI_Model
 	}
 
 	function get_kec($kode_kabupaten){
-		$dml="SELECT * FROM kecamatan WHERE kode_kabupaten=$kode_kabupaten AND dihapus='T'";
+		$dml="SELECT kode_kecamatan,nama_kecamatan, kode_kabupaten, nama_kabupaten FROM kecamatan join kabupaten USING (kode_kabupaten) WHERE kode_kabupaten=$kode_kabupaten AND dihapus='T'";
 		$query=$this->db->query($dml);
 		return $query;
 	}	

@@ -10,6 +10,7 @@ class Admin_Dinas extends CI_Controller
     	$this->load->model('Dbs_Dinas');
         $this->load->model('Dbs_CRUD');
         $this->load->model('Dbs_pw');
+        $this->load->model('Dbs_login');
          $this->load->model('Data_Wisata_Model');
 				 $this->load->model('Dbs_Polygon');
     	$this->load->helper('url');
@@ -64,9 +65,31 @@ class Admin_Dinas extends CI_Controller
         $this->load->view('admindinas/footer');
     }
 
+    public function email($subject,$isi,$emailtujuan){
+
+          $config['protocol'] = 'smtp';
+          $config['smtp_host'] = 'ssl://smtp.gmail.com';
+          $config['smtp_port'] = '465';
+          $config['smtp_user'] = 'shorfanaiqbal98@gmail.com';
+          $config['smtp_pass'] = 'muhammad90'; //ini pake akun pass google email
+          $config['mailtype'] = 'html';
+          $config['charset'] = 'iso-8859-1';
+          $config['wordwrap'] = 'TRUE';
+          $config['newline'] = "\r\n";
+
+          $this->load->library('email', $config);
+          $this->email->initialize($config);
+
+          $this->email->from('shorfanaiqbal98@gmail.com');
+          $this->email->to($emailtujuan);
+          $this->email->subject($subject);
+          $this->email->message($isi);
+          $this->email->set_mailtype('html');
+          $this->email->send();
+    }    
+
     function pTambahpemilikwisata(){
         $nama=$_POST['nama'];
-        $nip=$_POST['NIP'];
         $noktp=$_POST['noktp'];
         $email=$_POST['email'];
         $password=$_POST['password'];
@@ -82,12 +105,14 @@ class Admin_Dinas extends CI_Controller
         }else{
             $gambar=$this->upload->data('file_name');
         }
+        if ($this->Dbs_login->cekEmail($email)->num_rows()>0) {
+            echo "<script type='text/javascript'>alert('Email Sudah terdaftar'); document.location='http://localhost/wisatabandung/Admin_Dinas/vTambahPemilikwisata' </script>";
+        }else {
         $data=array(
             'nama' => $nama,
-            'NIP' => $nip,
             'noktp' => $noktp,
             'email' => $email,
-            'password' => $password,
+            'password' => md5($password),
             'alamat' => $alamat,
             'tempat' => $tempat,
             'tgl_lahir' => $tgl_lahir,
@@ -95,25 +120,24 @@ class Admin_Dinas extends CI_Controller
         );
         $sql=$this->Dbs_CRUD->insert($data,'pemilik_wisata');
         if ($sql) {
-            echo "<script type='text/javascript'>alert('Berhasil Menambahkan Pemilik Wisata'); document.location='http://localhost/wisatabandung/Admin_Dinas/Pemilik_Wisata' </script>";
-        }else{
-            echo "<script type='text/javascript'>alert('Berhasil Menambahkan Pemilik Wisata'); document.location='http://localhost/wisatabandung/Admin_Dinas/vTambahPemilikwisata' </script>";
+            $isiemail='<a href=\'http://localhost/wisatabandung/register/verif_pemilik_wisata/'.$noktp.'\'>VERIFIKASI KLIK DISINI</a>';
+            $this->email('Verifikasi akun',$isiemail,$email);           
+            
 
+            echo "<script type='text/javascript'>alert('Berhasil Menambahkan Pemilik Wisata'); document.location='http://localhost/wisatabandung/pemilik_wisata_nonaktif/' </script>";
+        }else{
+            echo "<script type='text/javascript'>alert('Gagal Menambahkan Pemilik Wisata'); document.location='http://localhost/wisatabandung/vTambahPemilikwisata' </script>";
+            
         }
     }
+ }
 
     function vUpdatepemilikwisata($id){
-        $get=$this->Dbs_Dinas->getByemail($id);
+        $get=$this->Dbs_Dinas->getByeid($id);
         $data=array(
-            'nama' => $get->nama,
-            'noktp' => $get->noktp,
-            'password' => $get->password,
-            'email' => $get->email,
-            'alamat' => $get->alamat,
-            'tempat' => $get->tempat,
-            'tgl_lahir' => $get->tgl_lahir,
-            'foto_ktp' => $get->foto_ktp
+            'pemilik_wisata' => $get,
         );
+
         $this->load->view('admindinas/header');
         $this->load->view('admindinas/vUpdatepemilikwisata',$data);
         $this->load->view('admindinas/footer');
@@ -195,17 +219,12 @@ class Admin_Dinas extends CI_Controller
         $this->load->view('admindinas/footer');
     }
 
-    function pHapuspemilikwisata(){
-        $email=$_POST['email'];
-        $dihapus=$_POST['dihapus'];
-        $data=array(
-            'dihapus' => $dihapus
-        );
-        $sql=$this->Dbs_CRUD->update($data,'pemilik_wisata','email',$email);
-        if($dihapus == 'Y'){
-            echo "<script type='text/javascript'>alert('Data Berhasil Dihapus'); document.location='http://localhost/wisatabandung/Admin_Dinas/Pemilik_Wisata' </script>";
+    function pHapuspemilikwisata($id_pemilikwisata){
+        $sql=$this->Dbs_Dinas->hapusPw($id_pemilikwisata);
+        if($sql){
+            echo "<script type='text/javascript'>alert('Data Berhasil Dihapus'); document.location='http://localhost/wisatabandung/Admin_Dinas/pemilik_wisata_aktif' </script>";
         }else{
-            echo "<script type='text/javascript'>alert('Data Berhasil Direstore'); document.location='http://localhost/wisatabandung/Admin_Dinas/Pemilik_Wisata' </script>";
+            echo "<script type='text/javascript'>alert('Data Berhasil Direstore'); document.location='http://localhost/wisatabandung/Admin_Dinas/pemilik_wisata_aktif' </script>";
         }
 
     }
@@ -338,7 +357,7 @@ class Admin_Dinas extends CI_Controller
             );
             $this->Data_Wisata_Model->update($kode_wisata,$data);
 
-            redirect('Admin_Dinas/data_wisata','refresh');
+            redirect('Admin_Dinas','refresh');
     }
 
 		public function aktifwisata($id)
@@ -383,14 +402,17 @@ class Admin_Dinas extends CI_Controller
 
     function tambah_kecamatan(){
         $kode_kabupaten=$this->session->userdata('kode_kabupaten');
-        // $get=$this->Dbs_Dinas->get_kec($kode_kabupaten)->row();
-        // $data=array(
-        //     'kode_kecamatan' => $get->kode_kecamatan,
-        //     'nama_kecamatan' => $get->nama_kecamatan,
-        //     'kode_kabupaten' => $get->kode_kabupaten
-        // );
+        // var_dump($data);
+        $get=$this->Dbs_Dinas->get_kec($kode_kabupaten)->row();
+        $data=array(
+            'kode_kecamatan' => $get->kode_kecamatan,
+            'nama_kecamatan' => $get->nama_kecamatan,
+            'kode_kabupaten' => $get->kode_kabupaten,
+            'nama_kabupaten' => $get->nama_kabupaten
+        );
+        // var_dump($data);
         $this->load->view('admindinas/header');
-        $this->load->view('admindinas/tambahKecamatan',$kode_kabupaten);
+        $this->load->view('admindinas/tambahKecamatan',$data);
         $this->load->view('admindinas/footer');
     }
 
@@ -401,6 +423,7 @@ class Admin_Dinas extends CI_Controller
             'nama_kecamatan' => $nama_kecamatan,
             'kode_kabupaten' =>$kode_kabupaten
         );
+        // var_dump($data);
         $sql=$this->Dbs_CRUD->insert($data,'kecamatan');
         if ($sql) {
             echo "<script type='text/javascript'>alert('Data Kecamatan Berhasil Ditambhakan'); document.location='http://localhost/wisatabandung/Admin_Dinas/data_kecamatan' </script>";

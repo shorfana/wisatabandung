@@ -33,9 +33,11 @@
                                                        placeholder="Enter user name" class="form-control" id="nama" value="<?php echo $nama_kelurahan ?>">
                                             </div>
                                             <div class="form-group">
-                                                <label for="userName">Kode Kecamatan<span class="text-danger">*</span></label>
-                                                <input type="text" name="kode_kecamatan" parsley-trigger="change" required
-                                                   readonly placeholder="Enter user name" class="form-control" id="NIP" value="<?php echo $kode_kecamatan ?>"  readonly>
+                                                <select name="kode_kecamatan" class="form-control">
+                                                    <?php foreach ($get as $k): ?>  
+                                                        <option value="<?php echo $k->kode_kecamatan ?>"><?php echo $k->nama_kecamatan ?></option>
+                                                    <?php endforeach ?>
+                                                </select>
                                             </div>
                                             <div class="form-group">
                                                 <div class="checkbox">

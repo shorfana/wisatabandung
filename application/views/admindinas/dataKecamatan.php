@@ -31,7 +31,7 @@
                                         <tr>
                                             <th>Kode Kecamatan</th>
                                             <th>Nama Kecamatan</th>
-                                            <th>Kode Kabupaten</th>
+                                            <th>Nama Kabupaten</th>
                                             <th>Aksi</th>
                                            <!--  <th>Age</th>
                                             <th>Start date</th>
@@ -43,7 +43,7 @@
                                         <tr>
                                             <td><?php echo $k->kode_kecamatan ?></td>
                                             <td><?php echo $k->nama_kecamatan ?></td>
-                                            <td><?php echo $k->kode_kabupaten ?></td>
+                                            <td><?php echo $k->nama_kabupaten ?></td>
                                             <td><a href="<?php echo site_url('Admin_Dinas/vUpdateKec/'.$k->kode_kecamatan) ?>" class="btn btn-custom btn-rounded">Ubah</a><br><br>
                                             <a href="<?php echo site_url('Admin_Dinas/pDeletekec/'.$k->kode_kecamatan) ?>" class="btn btn-custom btn-rounded">Hapus</a></td>
                                         </tr>

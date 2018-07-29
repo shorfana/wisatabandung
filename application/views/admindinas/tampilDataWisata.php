@@ -31,7 +31,7 @@
                     <th>Longitude</th>
                     <th>Alamat</th>
                     <th>Keterangan Wisata</th>
-                    <th>Aktif</th>
+                    <th>Status</th>
                     <th> Aksi </th>
                  </tr>
               </thead>
@@ -43,15 +43,15 @@
                     <td><?php echo $d->longitude ?></td>
                       <td><?php echo $d->alamat ?></td>
                     <td><?php echo $d->deskripsi ?></td>
-                    <td><?php if ($data->aktif=='Y') {
+                    <td><?php if ($d->aktif=='Y') {
                       echo "Aktif";
                     } else {
                       echo "Tidak Aktif";
                     }
                     ?></td>
-                    <td> <a href="<?php echo site_url('Admin_Dinas/editwisata/'.$data->kode_wisata) ?>">ubah</a>
-                      <a href="<?php echo site_url('Admin_Dinas/hapuswisata/'.$data->kode_wisata) ?>">hapus</a>
-                      <a href="<?php echo site_url('Admin_Dinas/aktifwisata/'.$data->kode_wisata) ?>">aktif</a>
+                    <td> <a href="<?php echo site_url('Admin_Dinas/editwisata/'.$d->kode_wisata) ?>">ubah</a>
+                      <a href="<?php echo site_url('Admin_Dinas/hapuswisata/'.$d->kode_wisata) ?>">hapus</a>
+                      <a href="<?php echo site_url('Admin_Dinas/aktifwisata/'.$d->kode_wisata) ?>">aktif</a>
                      </td>
                  </tr>
                  <?php endforeach; ?>
