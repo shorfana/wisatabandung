@@ -43,7 +43,7 @@
             labels: labels,
             hideHover: 'auto',
             resize: true, //defaulted to true
-            gridLineColor: '#eeeeee',
+            gridLineColor: '#ffffff',
             barColors: lineColors
         });
     },
@@ -61,23 +61,11 @@
             { y: '2014', a: 75, b: 50 },
             { y: '2015', a: 100, b: 70 }
           ];
-        this.createLineChart('dashboard-line-chart', $data, 'y', ['a', 'b'], ['Mobiles', 'Tablets'],['0.1'],['#ffffff'],['#999999'], ['#458bc4', '#23b195']);
+        this.createLineChart('dashboard-line-chart', $data, 'y', ['a', 'b'], ['FALDI', 'Tablets'],['0.1'],['#ffffff'],['#999999'], ['#ffffff', '#23b195']);
 
         //creating Stacked chart
-        var $stckedData  = [
-            { y: '2005', a: 45, b: 180 },
-            { y: '2006', a: 75,  b: 65 },
-            { y: '2007', a: 100, b: 90 },
-            { y: '2008', a: 75,  b: 65 },
-            { y: '2009', a: 100, b: 90 },
-            { y: '2010', a: 75,  b: 65 },
-            { y: '2011', a: 50,  b: 40 },
-            { y: '2012', a: 75,  b: 65 },
-            { y: '2013', a: 50,  b: 40 },
-            { y: '2014', a: 75,  b: 65 },
-            { y: '2015', a: 100, b: 90 }
-        ];
-        this.createStackedChart('dashboard-bar-stacked', $stckedData, 'y', ['a', 'b'], ['Series A', 'Series B'], ['#458bc4', '#ebeff2']);
+        var $stckedData  = dataExplicit 
+        this.createStackedChart('dashboard-bar-stacked', $stckedData, 'y', ['a', 'b'], ['FALDI', 'Series B'], ['#458bc4', '#458bc4']);
 
     },
     //init

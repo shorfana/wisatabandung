@@ -10,6 +10,7 @@ class Superadmin extends CI_Controller
     	//Codeigniter : Write Less Do More
     	$this->load->model('Dbs_CRUD');
         $this->load->model('Dbs_sadmin');
+        $this->load->model('Dbs_home');
     	$this->load->helper('url');
         if ($this->session->userdata('status')!='superadmin') {
             redirect(base_url()."Login");
@@ -17,8 +18,18 @@ class Superadmin extends CI_Controller
     }
 
     function index(){
+        $kotban=$this->Dbs_home->hitung_kotban()->row();
+        $cimahi=$this->Dbs_home->hitung_cimahi()->row();
+        $kabban=$this->Dbs_home->hitung_kabban()->row();
+        $banrat=$this->Dbs_home->hitung_banrat()->row();
+        $data=array(
+            'kotban' => $kotban,
+            'cimahi' => $cimahi,
+            'kabban' => $kabban,
+            'banrat' => $banrat
+        );
         $this->load->view('superadmin/header');
-    	$this->load->view('superadmin/home');
+    	$this->load->view('superadmin/home',$data);
         $this->load->view('superadmin/footer');
     }
 
