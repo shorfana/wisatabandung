@@ -33,6 +33,17 @@ class Dbs_home extends CI_Model
 		$query=$this->db->query($dml);
 		return $query;
 	}
+
+	function filter($kode_kabupaten){
+		$dml="SELECT nama_wisata,alamat,deskripsi,nama_gambar FROM data_wisata INNER JOIN gambar USING(kode_wisata) where kode_kabupaten=$kode_kabupaten";
+		$query=$this->db->query($dml);
+		return $query;
+	}
+
+	function getpoto(){
+		$d=$this->db->get('gambar');
+		return $d;
+	}
 	
 }
  ?>

@@ -15,14 +15,6 @@
 			<!-- SidePanel -->
 			<div id="slidepanel">
 
-				<!-- Top Header -->
-				<div class="container-fluid no-padding top-header">
-					<!-- Container -->
-					<div class="container">
-
-						<!-- Search Box -->
-					</div><!-- Container /- -->
-				</div><!-- Top Header /- -->
 			</div><!-- SidePanel /- -->
 
 			<div class="container-fluid no-padding menu-block">
@@ -37,14 +29,16 @@
 								<span class="icon-bar"></span>
 								<span class="icon-bar"></span>
 							</button>
-							<a href="<?php echo base_url() ?>" class="navbar-brand">Wisata Bandung</a>
 						</div>
+
 						<div class="navbar-collapse collapse" id="navbar">
 							<ul class="nav navbar-nav">
-								<li><a href="<?php echo base_url() ?>" title="About me">Kota Bandung</a></li>
-								<li><a href="<?php echo base_url() ?>maxadventure/about.html" title="About me">Kota Cimahi</a></li>
-								<li><a href="<?php echo base_url() ?>maxadventure/services.html" title="Services">Kabupaten Bandung</a></li>
-								<li><a href="<?php echo base_url() ?>maxadventure/gallery.html" title="Gallery">Kabupaten Bandung Barat</a></li>
+								<li><a href="<?php echo base_url() ?>" title="Gallery">Home</a></li>
+								<li><a href="<?php echo base_url()."Home/kotabandung" ?>" title="About me">Kota Bandung</a></li>
+								<li><a href="<?php echo base_url() ?>Home/cimahi" title="About me">Kota Cimahi</a></li>
+								<li><a href="<?php echo base_url() ?>Home/kabupatenbandung" title="Services">Kabupaten Bandung</a></li>
+								<li><a href="<?php echo base_url() ?>Home/bandungbarat" title="Gallery">Kab Bandung Barat</a></li>
+								
 								<li class="dropdown">
 									<a href="#" title="Menu Login" class="dropdown-toggle" role="button" aria-haspopup="true" aria-expanded="false">Login</a>
 									<i class="ddl-switch fa fa-angle-down"></i>
@@ -230,7 +224,7 @@
 					</div>
 				</div>
 
-				<span class="goto-next"><a href="#features-section"><i class="icon icon-Mouse bounce" aria-hidden="true"></i></a></span>
+				<span class="goto-next"><a href="<?php echo base_url()."Register" ?>"><i class="icon icon-Mouse bounce" aria-hidden="true"></i></a></span>
 			</div><!-- Slider Section /- -->
 
 
@@ -246,156 +240,19 @@
 
 					<!-- Row -->
 					<div class="row">
+						<?php foreach ($data as $d): ?>						
 						<!-- Destination Box -->
 						<div class="col-md-4 col-sm-6 col-xs-6 destination-box">
 							<div class="destination-content">
 								<img src="<?php echo base_url() ?>maxadventure/gambar/a/1.jpg" alt="Destination" />
-								<h3><span>Up Side Down</span></h3>
+								<h3><span><?php echo $d->nama_wisata ?></span></h3>
 								<div class="destination-content-box">
-									<h4>Kota bandung<br> senin - minggu </h4>
-									<h5>jam buka<span>10.00 - 19.00 wib</span></h5>
-									<h2>Rp.100.000<span>Perorang</span></h2>
-									<span>
-										<i class="fa fa-star"></i>
-										<i class="fa fa-star"></i>
-										<i class="fa fa-star"></i>
-										<i class="fa fa-star"></i>
-										<i class="fa fa-star-o"></i>
-									</span>
-									<ul>
-										<li><a href="#"><i class="fa fa-plane"></i></a></li>
-										<li><a href="#"><i class="fa fa-bus"></i></a></li>
-										<li><a href="#"><i class="fa fa-male"></i></a></li>
-										<li><a href="#"><i class="fa fa-ship"></i></a></li>
-									</ul>
+									<h4><?php echo $d->nama_kabupaten ?><br> senin - minggu </h4>
+									<h2><a href="<?php echo site_url('Home/details/'.$d->kode_wisata) ?>">Read More</a></h2>
 								</div>
 							</div>
 						</div><!-- Destination Box /- -->
-						<!-- Destination Box -->
-						<div class="col-md-4 col-sm-6 col-xs-6 destination-box">
-							<div class="destination-content">
-								<img src="<?php echo base_url() ?>maxadventure/gambar/a/2kbb.jpg" alt="Destination" />
-								<h3><span>Imah Seniman</span></h3>
-								<div class="destination-content-box">
-									<h4>Kabupaten Bandung Barat<br>setiap hari</h4>
-									<h5>Jam buka<span>24 jam</span></h5>
-									<h2>Rp.420.000 <span>Per kamar</span></h2>
-									<span>
-										<i class="fa fa-star"></i>
-										<i class="fa fa-star"></i>
-										<i class="fa fa-star"></i>
-										<i class="fa fa-star"></i>
-										<i class="fa fa-star-o"></i>
-									</span>
-									<ul>
-										<li><a href="#"><i class="fa fa-plane"></i></a></li>
-										<li><a href="#"><i class="fa fa-bus"></i></a></li>
-										<li><a href="#"><i class="fa fa-male"></i></a></li>
-										<li><a href="#"><i class="fa fa-ship"></i></a></li>
-									</ul>
-								</div>
-							</div>
-						</div><!-- Destination Box /- -->
-						<!-- Destination Box -->
-						<div class="col-md-4 col-sm-6 col-xs-6 destination-box">
-							<div class="destination-content">
-								<img src="<?php echo base_url() ?>maxadventure/gambar/a/3kb.jpg"alt="Destination" />
-								<h3><span>Ranca Upas</span></h3>
-								<div class="destination-content-box">
-									<h4>kabupaten bandung<br> setiap hari </h4>
-									<h5>jam buka<span>24 jam</span></h5>
-									<h2>Rp.15.000<span>Perorang</span></h2>
-									<span>
-										<i class="fa fa-star"></i>
-										<i class="fa fa-star"></i>
-										<i class="fa fa-star"></i>
-										<i class="fa fa-star"></i>
-										<i class="fa fa-star-o"></i>
-									</span>
-									<ul>
-										<li><a href="#"><i class="fa fa-plane"></i></a></li>
-										<li><a href="#"><i class="fa fa-bus"></i></a></li>
-										<li><a href="#"><i class="fa fa-male"></i></a></li>
-										<li><a href="#"><i class="fa fa-ship"></i></a></li>
-									</ul>
-								</div>
-							</div>
-						</div><!-- Destination Box /- -->
-						<!-- Destination Box -->
-						<div class="col-md-4 col-sm-6 col-xs-6 destination-box">
-							<div class="destination-content">
-								<img src="<?php echo base_url() ?>maxadventure/gambar/a/4cmh.jpg" alt="Destination" />
-								<h3><span>Taman Bunga Cihideng</span></h3>
-								<div class="destination-content-box">
-									<h4>Cimahi<br> setiap hari</h4>
-									<h5>jam buka<span>08.00 - 17.00 wib</span></h5>
-									<h2>Rp.5000 <span>Perorang</span></h2>
-									<span>
-										<i class="fa fa-star"></i>
-										<i class="fa fa-star"></i>
-										<i class="fa fa-star"></i>
-										<i class="fa fa-star"></i>
-										<i class="fa fa-star-o"></i>
-									</span>
-									<ul>
-										<li><a href="#"><i class="fa fa-plane"></i></a></li>
-										<li><a href="#"><i class="fa fa-bus"></i></a></li>
-										<li><a href="#"><i class="fa fa-male"></i></a></li>
-										<li><a href="#"><i class="fa fa-ship"></i></a></li>
-									</ul>
-								</div>
-							</div>
-						</div><!-- Destination Box /- -->
-						<!-- Destination Box -->
-						<div class="col-md-4 col-sm-6 col-xs-6 destination-box">
-							<div class="destination-content">
-								<img src="<?php echo base_url() ?>maxadventure/gambar/a/5cmh.jpg" alt="Destination" />
-								<h3><span>Kampung Buyut Cimahi</span></h3>
-								<div class="destination-content-box">
-									<h4>Cimahi<br> setiap hari </h4>
-									<h5>jam buka <span>08.00 - 22.00 wib</span></h5>
-									<h2>gratis<span>Perorang</span></h2>
-									<span>
-										<i class="fa fa-star"></i>
-										<i class="fa fa-star"></i>
-										<i class="fa fa-star"></i>
-										<i class="fa fa-star"></i>
-										<i class="fa fa-star-o"></i>
-									</span>
-									<ul>
-										<li><a href="#"><i class="fa fa-plane"></i></a></li>
-										<li><a href="#"><i class="fa fa-bus"></i></a></li>
-										<li><a href="#"><i class="fa fa-male"></i></a></li>
-										<li><a href="#"><i class="fa fa-ship"></i></a></li>
-									</ul>
-								</div>
-							</div>
-						</div><!-- Destination Box /- -->
-						<!-- Destination Box -->
-						<div class="col-md-4 col-sm-6 col-xs-6 destination-box">
-							<div class="destination-content">
-								<img src="<?php echo base_url() ?>maxadventure/gambar/a/6kb.jpg" alt="Destination" />
-								<h3><span>The lodge maribaya</span></h3>
-								<div class="destination-content-box">
-									<h4>kabupaten bandung barat<br> Setiap hari </h4>
-									<h5>jam buka<span>09.00 - 17.00 wib</span></h5>
-									<h2>Rp.20.000<span>Perorang</span></h2>
-									<span>
-										<i class="fa fa-star"></i>
-										<i class="fa fa-star"></i>
-										<i class="fa fa-star"></i>
-										<i class="fa fa-star"></i>
-										<i class="fa fa-star-o"></i>
-									</span>
-									<ul>
-										<li><a href="#"><i class="fa fa-plane"></i></a></li>
-										<li><a href="#"><i class="fa fa-bus"></i></a></li>
-										<li><a href="#"><i class="fa fa-male"></i></a></li>
-										<li><a href="#"><i class="fa fa-ship"></i></a></li>
-									</ul>
-								</div>
-							</div>
-						</div><!-- Destination Box /- -->
+						<?php endforeach; ?>	
 					</div><!-- Row /- -->
 				</div><!-- Container /- -->
 			</div><!-- Destination Section /- -->

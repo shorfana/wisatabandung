@@ -51,11 +51,29 @@
     Dashboard.prototype.init = function() {
 
         //create line chart
-        var $data  = dataExplicit;
+        var $data  = [
+             { y: '2008', a: 50, b: 0 },
+            { y: '2009', a: 75, b: 50 },
+            { y: '2010', a: 30, b: 80 },
+            { y: '2011', a: 50, b: 50 },
+            { y: '2012', a: 75, b: 10 },
+            { y: '2013', a: 50, b: 40 },
+            { y: '2014', a: 75, b: 50 },
+            { y: '2015', a: 100, b: 70 }
+          ];
         this.createLineChart('dashboard-line-chart', $data, 'y', ['a', 'b'], ['FALDI', 'Tablets'],['0.1'],['#ffffff'],['#999999'], ['#ffffff', '#23b195']);
 
         //creating Stacked chart
-        var $stckedData  = dataExplicit;
+        var $stckedData  = [
+             { y: '2008', a: 50, b: 0 },
+            { y: '2009', a: 75, b: 50 },
+            { y: '2010', a: 30, b: 80 },
+            { y: '2011', a: 50, b: 50 },
+            { y: '2012', a: 75, b: 10 },
+            { y: '2013', a: 50, b: 40 },
+            { y: '2014', a: 75, b: 50 },
+            { y: '2015', a: 100, b: 70 }
+          ];
         this.createStackedChart('dashboard-bar-stacked', $stckedData, 'y', ['a', 'b'], ['FALDI', 'Series B'], ['#458bc4', '#458bc4']);
 
     },

@@ -30,21 +30,21 @@
 
                                         <div class="col-lg-3 col-sm-6">
                                             <div class="widget-inline-box text-center">
-                                                <h3 class="m-t-10"><i class="text-custom mdi mdi-airplay"></i> <b><?php echo $kotban->wisata ?></b></h3>
+                                                <h3 class="m-t-10"><i class="text-custom mdi mdi-airplay"></i> <b><?php echo $cimahi->wisata ?></b></h3>
                                                 <p class="text-muted">Cimahi</p>
                                             </div>
                                         </div>
 
                                         <div class="col-lg-3 col-sm-6">
                                             <div class="widget-inline-box text-center">
-                                                <h3 class="m-t-10"><i class="text-info mdi mdi-black-mesa"></i> <b><?php echo $kotban->wisata ?></b></h3>
+                                                <h3 class="m-t-10"><i class="text-info mdi mdi-black-mesa"></i> <b><?php echo $kabban->wisata ?></b></h3>
                                                 <p class="text-muted">Kabupaten Bandung</p>
                                             </div>
                                         </div>
 
                                         <div class="col-lg-3 col-sm-6">
                                             <div class="widget-inline-box text-center b-0">
-                                                <h3 class="m-t-10"><i class="text-danger mdi mdi-cellphone-link"></i> <b><?php echo $kotban->wisata ?></b></h3>
+                                                <h3 class="m-t-10"><i class="text-danger mdi mdi-cellphone-link"></i> <b><?php echo $banrat->wisata ?></b></h3>
                                                 <p class="text-muted">kabupaten Bandung Barat</p>
                                             </div>
                                         </div>

@@ -35,7 +35,9 @@
                 { y: "<?php echo $d->kode_kabupaten ?>", a: <?php echo $d->jumlah ?>,}
                 <?php endforeach; ?>
             ];
+            console.log(dataExplicit);
         </script>
+        <?php ?>
         <script src="<?php echo base_url() ?>dark/assets/pages/jquery.dashboard.js"></script>
 
         <!-- App js -->

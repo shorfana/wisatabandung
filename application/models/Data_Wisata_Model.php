@@ -146,4 +146,10 @@ public function get_kabupaten()
        $sql="SELECT kode_kabupaten, count(kode_wisata) as jumlah from data_wisata GROUP BY kode_kabupaten";
        return $this->db->query($sql)->result();
      }
+
+     public function get_wisata_latihan()
+     {
+       $sql="Select * from `data_wisata` join kabupaten using (kode_kabupaten) join kecamatan using (kode_kecamatan) join kelurahan using (kode_kelurahan) where data_wisata.dihapus='T' LIMIT 6";
+        return $this->db->query($sql)->result();
+     }
 }

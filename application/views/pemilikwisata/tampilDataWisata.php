@@ -18,6 +18,7 @@
               <br><br>
               <a href="<?php echo base_url()."Pemilik_Wisata/tambahwisata" ?>" class="btn btn-custom btn-rounded">Tambah Data Wisata</a>
               <a href="<?php echo base_url()."Pemilik_Wisata/export" ?>" class="btn btn-custom btn-rounded">Export Data Wisata</a>
+              <br><br>  
                <!-- <?php echo anchor(site_url('Pemilik_Wisata/tambahwisata'), 'Tambah Film', 'class="btn btn-primary"'); ?> -->
             </div>
             <!--<a href="www.facebook.com">

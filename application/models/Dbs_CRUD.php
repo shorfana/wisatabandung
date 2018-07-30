@@ -71,8 +71,10 @@ class Dbs_CRUD extends CI_Model
 	}
 
 	function getbykdkel($kode_kelurahan){
+		// \\$dml="select DISTINCT kode_kelurahan,nama_kelurahan,nama_kecamatan from kabupaten inner join kecamatan using(kode_kabupaten) inner join kelurahan where kode_kabupaten=3";	
+
 		$this->db->where('kode_kelurahan',$kode_kelurahan);
-		return $this->db->get('kelurahan')->row();
+		return $this->db->get('kelurahan');
 	}
 
 	public function get_kabupaten()

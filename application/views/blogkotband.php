@@ -14,16 +14,16 @@
 	<title>Blog Single - Hiking</title>
 
 	<!-- Standard Favicon -->
-	<link rel="icon" type="image/x-icon" href="images//favicon.ico" />
+	<link rel="icon" type="image/x-icon" href="<?php echo base_url() ?>maxadventure/images//favicon.ico" />
 	
 	<!-- For iPhone 4 Retina display: -->
-	<link rel="apple-touch-icon-precomposed" sizes="114x114" href="images//apple-touch-icon-114x114-precomposed.png">
+	<link rel="apple-touch-icon-precomposed" sizes="114x114" href="<?php echo base_url() ?>maxadventure/images//apple-touch-icon-114x114-precomposed.png">
 	
 	<!-- For iPad: -->
-	<link rel="apple-touch-icon-precomposed" sizes="72x72" href="images//apple-touch-icon-72x72-precomposed.png">
+	<link rel="apple-touch-icon-precomposed" sizes="72x72" href="<?php echo base_url() ?>maxadventure/images//apple-touch-icon-72x72-precomposed.png">
 	
 	<!-- For iPhone: -->
-	<link rel="apple-touch-icon-precomposed" href="images//apple-touch-icon-57x57-precomposed.png">
+	<link rel="apple-touch-icon-precomposed" href="<?php echo base_url() ?>maxadventure/images//apple-touch-icon-57x57-precomposed.png">
 	
 	<!-- Library - Google Font Familys -->
 	<link href="https://fonts.googleapis.com/css?family=Libre+Baskerville:400,400i,700" rel="stylesheet"> 
@@ -33,13 +33,13 @@
 	<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
 	
 	<!-- Library - Bootstrap v3.3.5 -->
-    <link rel="stylesheet" type="text/css" href="libraries/lib.css">
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>maxadventure/libraries/lib.css">
 	
 	<!-- Custom - Theme CSS -->
-	<link rel="stylesheet" type="text/css" href="css/plugins.css">			
-	<link rel="stylesheet" type="text/css" href="css/navigation-menu.css">
-	<link rel="stylesheet" type="text/css" href="css/shortcode.css">
-	<link rel="stylesheet" type="text/css" href="style.css">
+	<link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>maxadventure/css/plugins.css">			
+	<link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>maxadventure/css/navigation-menu.css">
+	<link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>maxadventure/css/shortcode.css">
+	<link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>maxadventure/style.css">
 	
 	<!--[if lt IE 9]>
 		<script src="js/html5/respond.min.js"></script>
@@ -108,7 +108,7 @@
 								<span class="icon-bar"></span>
 								<span class="icon-bar"></span>
 							</button>
-							<a href="index.html" class="navbar-brand"><img src="images/logo.png" alt="logo" /></a>
+							<a href="index.html" class="navbar-brand"><img src="<?php echo base_url() ?>maxadventure/images/logo.png" alt="logo" /></a>
 						</div>
 						<div class="navbar-collapse collapse" id="navbar">
 							<ul class="nav navbar-nav">
@@ -177,7 +177,7 @@
 						<!-- Type Post -->
 						<article class="type-post">
 							<div class="entry-cover">
-								<a href="#"><img src="images/blog1.jpg" alt="Blog" /></a>
+								<a href="#"><img src="<?php echo base_url() ?>maxadventure/images/blog1.jpg" alt="Blog" /></a>
 								<h3 class="entry-title"><a href="#" title="It has survived not only five centuries in The travelling">It has survived not only five centuries in The travelling</a></h3>
 								<div class="post-date"><a href="#"><b>23</b>feb</a></div>
 							</div>
@@ -281,13 +281,13 @@
 	</div>
 
 	<!-- JQuery v1.12.4 -->
-	<script src="js/jquery-1.12.4.min.js"></script>
+	<script src="<?php echo base_url() ?>maxadventure/js/jquery-1.12.4.min.js"></script>
 
 	<!-- Library - Js -->
-	<script src="libraries/lib.js"></script>
+	<script src="<?php echo base_url() ?>maxadventure/libraries/lib.js"></script>
 
 	<!-- Library - Theme JS -->
-	<script src="js/functions.js"></script>
+	<script src="<?php echo base_url() ?>maxadventure/js/functions.js"></script>
 	
 </body>
 </html>
