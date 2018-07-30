@@ -11,8 +11,8 @@ class Admin_Dinas extends CI_Controller
         $this->load->model('Dbs_CRUD');
         $this->load->model('Dbs_pw');
         $this->load->model('Dbs_login');
-         $this->load->model('Data_Wisata_Model');
-				 $this->load->model('Dbs_Polygon');
+        $this->load->model('Data_Wisata_Model');
+		$this->load->model('Dbs_Polygon');
     	$this->load->helper('url');
         if ($this->session->userdata('status')!='admin_dinas') {
             redirect(base_url()."Login");
@@ -23,7 +23,8 @@ class Admin_Dinas extends CI_Controller
         if ($this->session->userdata('status')!='admin_dinas') {
             redirect(base_url()."Login/login_admin_dinas");
         } else {
-             $this->load->view('admindinas/header');
+            
+        $this->load->view('admindinas/header');
         $this->load->view('admindinas/home');
         $this->load->view('admindinas/footer');
         }
@@ -356,6 +357,40 @@ class Admin_Dinas extends CI_Controller
                     'kode_kelurahan'=>$kode_kelurahan
             );
             $this->Data_Wisata_Model->update($kode_wisata,$data);
+                        //upload gambar
+                        if(!empty($_FILES['files']['name'])){
+                    $filesCount = count($_FILES['files']['name']);
+                    for($i = 0; $i < $filesCount; $i++){
+                        $_FILES['file']['name']     = $_FILES['files']['name'][$i];
+                        $_FILES['file']['type']     = $_FILES['files']['type'][$i];
+                        $_FILES['file']['tmp_name'] = $_FILES['files']['tmp_name'][$i];
+                        $_FILES['file']['error']     = $_FILES['files']['error'][$i];
+                        $_FILES['file']['size']     = $_FILES['files']['size'][$i];
+
+                        // File upload configuration
+                        $uploadPath = 'uploads/files/';
+                        $config['upload_path'] = $uploadPath;
+                        $config['allowed_types'] = 'jpg|jpeg|png|gif';
+                                        
+
+                        // Load and initialize upload library
+                        $this->load->library('upload', $config);
+                        $this->upload->initialize($config);
+
+                        // Upload file to server
+                        if($this->upload->do_upload('file')){
+                            // Uploaded file data
+                            $fileData = $this->upload->data();
+                            $uploadData[$i]['nama_gambar'] = $fileData['file_name'];
+                            $uploadData[$i]['kode_wisata'] = $kode_wisata;
+                        }
+                    }
+
+                    if(!empty($uploadData)){
+                        // Insert files data into the database
+                        $insert = $this->Dbs_CRUD->insert_gambar($uploadData);
+                    }
+                }            
 
             redirect('Admin_Dinas','refresh');
     }

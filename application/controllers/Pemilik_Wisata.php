@@ -142,7 +142,7 @@ class Pemilik_Wisata extends CI_Controller
 		                $uploadPath = 'uploads/files/';
 		                $config['upload_path'] = $uploadPath;
 		                $config['allowed_types'] = 'jpg|jpeg|png|gif';
-										$config['encrypt_name'] = TRUE;
+										
 
 		                // Load and initialize upload library
 		                $this->load->library('upload', $config);
@@ -210,6 +210,41 @@ class Pemilik_Wisata extends CI_Controller
 					'kode_kelurahan'=>$kode_kelurahan
 			);
 			$this->Data_Wisata_Model->update($kode_wisata,$data);
+						//upload gambar
+						if(!empty($_FILES['files']['name'])){
+		            $filesCount = count($_FILES['files']['name']);
+		            for($i = 0; $i < $filesCount; $i++){
+		                $_FILES['file']['name']     = $_FILES['files']['name'][$i];
+		                $_FILES['file']['type']     = $_FILES['files']['type'][$i];
+		                $_FILES['file']['tmp_name'] = $_FILES['files']['tmp_name'][$i];
+		                $_FILES['file']['error']     = $_FILES['files']['error'][$i];
+		                $_FILES['file']['size']     = $_FILES['files']['size'][$i];
+
+		                // File upload configuration
+		                $uploadPath = 'uploads/files/';
+		                $config['upload_path'] = $uploadPath;
+		                $config['allowed_types'] = 'jpg|jpeg|png|gif';
+										
+
+		                // Load and initialize upload library
+		                $this->load->library('upload', $config);
+		                $this->upload->initialize($config);
+
+		                // Upload file to server
+		                if($this->upload->do_upload('file')){
+		                    // Uploaded file data
+		                    $fileData = $this->upload->data();
+		                    $uploadData[$i]['nama_gambar'] = $fileData['file_name'];
+		                    $uploadData[$i]['kode_wisata'] = $kode_wisata;
+		                }
+		            }
+
+		            if(!empty($uploadData)){
+		                // Insert files data into the database
+		                $insert = $this->Dbs_CRUD->insert_gambar($uploadData);
+		            }
+		        }			
+
 
 			redirect('Pemilik_Wisata/data_wisata','refresh');
     }

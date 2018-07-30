@@ -714,7 +714,7 @@
 						<img src="<?php echo base_url() ?>maxadventure/gambar/bandung medical center/bmc4.jpg" alt="Gallery" />
 						<div class="gallery-link">
 							<a href="#"><i class="icon icon-Linked"></i></a>
-							<a href="<?php echo base_url() ?>maxadventure/gambar/bandung medical center/bmc4.jpg" class="zoom"><i class="icon icon-Eye"></i></a>
+							<a href="<?php echo base_url() ?>maxadventure/gambar/bandung medical center/bmc4.jpg" class="zoom" ><i class="icon icon-Eye"></i></a>
 						</div>
 					</div>
 				</div><!-- Gallery Box /- -->
