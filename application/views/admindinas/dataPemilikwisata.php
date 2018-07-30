@@ -24,8 +24,8 @@
                                         DataTables has most features enabled by default, so all you need to do to use it with your own tables is to call the construction function.
                                         <br><br>
                                         <a href="<?php echo base_url()."Admin_Dinas/vTambahPemilikwisata" ?>" class="btn btn-custom btn-rounded">Tambah Pemilik Wisata</a>
-                                    
-                                    
+
+
                                     <table id="datatable" class="table table-bordered">
                                         <thead>
                                         <tr>
@@ -45,7 +45,7 @@
                                         </tr>
                                         </thead>
                                         <tbody>
-                                        <?php foreach ($pemilik_wisata as $p): ?>    
+                                        <?php foreach ($pemilik_wisata as $p): ?>
                                         <tr>
                                             <td><?php echo $p->nama ?></td>
                                             <td><?php echo $p->NIP ?></td>
@@ -131,7 +131,7 @@
         <script src="<?php echo base_url() ?>dark/assets/plugins/datatables/responsive.bootstrap4.min.js"></script>
 
         <!-- Selection table -->
-        <script src="<?php echo base_url() ?>dark/assets/plugins/datatables/dataTables.select.min.js"></script>          
+        <script src="<?php echo base_url() ?>dark/assets/plugins/datatables/dataTables.select.min.js"></script>
 
         <script type="text/javascript">
             $(document).ready(function() {
