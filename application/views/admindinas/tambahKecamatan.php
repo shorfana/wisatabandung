@@ -7,7 +7,7 @@
                 <div class="content">
                     <div class="container-fluid">
 
-                       
+
 
 
                         <div class="row">
@@ -15,14 +15,14 @@
                             <div class="col-lg-6">
                                 <div class="p-20 m-b-20">
 
-                                    <h4 class="header-title m-t-0">Form untuk menambahkan Kecamatan</h4>
+                                    <h4 class="header-title m-t-0">Tambah Kecamatan</h4>
                                     <p class="text-muted font-13 m-b-10">
                                         Parsley is a javascript form validation library. It helps you provide your users with feedback on their form submission before sending it to your server.
                                     </p>
 
                                     <div class="m-b-20">
                                         <?php echo form_open_multipart("Admin_Dinas/createKec"); ?>
-                                        
+
                                             <div class="form-group">
                                                 <label for="userName">Nama Kecamatan<span class="text-danger">*</span></label>
                                                 <input type="text" name="nama_kecamatan" parsley-trigger="change" required
@@ -33,10 +33,10 @@
                                                 <input type="text" name="" parsley-trigger="change" required
                                                        placeholder="Enter user name" class="form-control" id="NIP" value="<?php echo $nama_kabupaten ?>"  readonly>
                                             </div>
-                                          
+
                                                 <input type="text" name="kode_kabupaten" parsley-trigger="change" required
                                                        placeholder="Enter user name" class="form-control" id="NIP" value="<?php echo $_SESSION['kode_kabupaten'] ?>" hidden>
-                                            
+
                                             <div class="form-group">
                                                 <div class="checkbox">
                                                     <input id="remember-1" type="checkbox">
@@ -53,7 +53,7 @@
                                                 </button>
                                             </div>
                                             <?php echo form_close(); ?>
-                                        
+
                                     </div>
 
                                 </div>

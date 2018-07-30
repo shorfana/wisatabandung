@@ -15,10 +15,8 @@
                             <div class="col-lg-6">
                                 <div class="p-20 m-b-20">
 
-                                    <h4 class="header-title m-t-0">Form untuk menambahkan admin dinas</h4>
-                                    <p class="text-muted font-13 m-b-10">
-                                        Parsley is a javascript form validation library. It helps you provide your users with feedback on their form submission before sending it to your server.
-                                    </p>
+                                    <h4 class="header-title m-t-0">Ubah admin dinas</h4>
+
 
                                     <div class="m-b-20">
                                       <form action="<?php echo base_url()."Superadmin/pupdateAdmindinas" ?>" method="POST" class="form-validation">

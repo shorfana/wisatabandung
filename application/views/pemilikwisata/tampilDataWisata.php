@@ -8,13 +8,12 @@
 <div class="container-fluid">
    <div class="row">
       <div class="col-sm-12">
-         <h4 class="header-title m-t-0 m-b-20">Data Tables</h4>
+         <h4 class="header-title m-t-0 m-b-20">Data Wisata</h4>
       </div>
    </div>
    <div class="row">
       <div class="col-12">
          <div class="table-responsive">
-            <h6 class="font-14 mt-4">Default Example</h6>
             <div class="col-md-6 text-right">
               <br><br>
               <a href="<?php echo base_url()."Pemilik_Wisata/tambahwisata" ?>" class="btn btn-custom btn-rounded">Tambah Data Wisata</a>

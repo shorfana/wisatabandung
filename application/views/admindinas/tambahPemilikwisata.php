@@ -7,7 +7,7 @@
                 <div class="content">
                     <div class="container-fluid">
 
-                       
+
 
 
                         <div class="row">
@@ -15,14 +15,11 @@
                             <div class="col-lg-6">
                                 <div class="p-20 m-b-20">
 
-                                    <h4 class="header-title m-t-0">Form untuk menambahkan Pemilik Wisata</h4>
-                                    <p class="text-muted font-13 m-b-10">
-                                        Parsley is a javascript form validation library. It helps you provide your users with feedback on their form submission before sending it to your server.
-                                    </p>
+                                    <h4 class="header-title m-t-0">Tambah Pemilik Wisata</h4>
 
                                     <div class="m-b-20">
                                         <?php echo form_open_multipart("Admin_Dinas/ptambahPemilikwisata"); ?>
-                                        
+
                                             <div class="form-group">
                                                 <label for="userName">Nama<span class="text-danger">*</span></label>
                                                 <input type="text" name="nama" parsley-trigger="change" required
@@ -84,7 +81,7 @@
                                                 </button>
                                             </div>
                                             <?php echo form_close(); ?>
-                                        
+
                                     </div>
 
                                 </div>

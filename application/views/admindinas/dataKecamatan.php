@@ -12,20 +12,17 @@
 
                         <div class="row">
                             <div class="col-sm-12">
-                                <h4 class="header-title m-t-0 m-b-20">Data Tables</h4>
+                                <h4 class="header-title m-t-0 m-b-20">Data kecamatan</h4>
                             </div>
                         </div>
 
                         <div class="row">
                             <div class="col-12">
                                 <div class="table-responsive">
-                                    <h6 class="font-14 mt-4">Default Example</h6>
-                                    <p class="text-muted font-13 m-b-30">
-                                        DataTables has most features enabled by default, so all you need to do to use it with your own tables is to call the construction function.
                                         <br><br>
                                         <a href="<?php echo base_url()."Admin_Dinas/tambah_kecamatan" ?>" class="btn btn-custom btn-rounded">Tambah Kecamatan</a>
-                                    
-                                    
+
+
                                     <table id="datatable" class="table table-bordered">
                                         <thead>
                                         <tr>
@@ -39,7 +36,7 @@
                                         </tr>
                                         </thead>
                                         <tbody>
-                                        <?php foreach ($kecamatan as $k): ?>    
+                                        <?php foreach ($kecamatan as $k): ?>
                                         <tr>
                                             <td><?php echo $k->kode_kecamatan ?></td>
                                             <td><?php echo $k->nama_kecamatan ?></td>
@@ -119,7 +116,7 @@
         <script src="<?php echo base_url() ?>dark/assets/plugins/datatables/responsive.bootstrap4.min.js"></script>
 
         <!-- Selection table -->
-        <script src="<?php echo base_url() ?>dark/assets/plugins/datatables/dataTables.select.min.js"></script>          
+        <script src="<?php echo base_url() ?>dark/assets/plugins/datatables/dataTables.select.min.js"></script>
 
         <script type="text/javascript">
             $(document).ready(function() {

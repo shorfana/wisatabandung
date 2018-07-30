@@ -12,16 +12,13 @@
 
                         <div class="row">
                             <div class="col-sm-12">
-                                <h4 class="header-title m-t-0 m-b-20">Data Tables</h4>
+                                <h4 class="header-title m-t-0 m-b-20">Data Admin Dinas</h4>
                             </div>
                         </div>
 
                         <div class="row">
                             <div class="col-12">
                                 <div class="table-responsive">
-                                    <h6 class="font-14 mt-4">Default Example</h6>
-                                    <p class="text-muted font-13 m-b-30">
-                                        DataTables has most features enabled by default, so all you need to do to use it with your own tables is to call the construction function.
                                         <br><br>
                                         <a href="<?php echo base_url()."Superadmin/vtambahAdmindinas" ?>" class="btn btn-custom btn-rounded">Tambah Admin Dinas</a>
 

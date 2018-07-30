@@ -23,7 +23,7 @@ class Admin_Dinas extends CI_Controller
         if ($this->session->userdata('status')!='admin_dinas') {
             redirect(base_url()."Login/login_admin_dinas");
         } else {
-            
+
         $this->load->view('admindinas/header');
         $this->load->view('admindinas/home');
         $this->load->view('admindinas/footer');
@@ -87,7 +87,7 @@ class Admin_Dinas extends CI_Controller
           $this->email->message($isi);
           $this->email->set_mailtype('html');
           $this->email->send();
-    }    
+    }
 
     function pTambahpemilikwisata(){
         $nama=$_POST['nama'];
@@ -122,13 +122,13 @@ class Admin_Dinas extends CI_Controller
         $sql=$this->Dbs_CRUD->insert($data,'pemilik_wisata');
         if ($sql) {
             $isiemail='<a href=\'http://localhost/wisatabandung/register/verif_pemilik_wisata/'.$noktp.'\'>VERIFIKASI KLIK DISINI</a>';
-            $this->email('Verifikasi akun',$isiemail,$email);           
-            
+            $this->email('Verifikasi akun',$isiemail,$email);
+
 
             echo "<script type='text/javascript'>alert('Berhasil Menambahkan Pemilik Wisata'); document.location='http://localhost/wisatabandung/pemilik_wisata_nonaktif/' </script>";
         }else{
             echo "<script type='text/javascript'>alert('Gagal Menambahkan Pemilik Wisata'); document.location='http://localhost/wisatabandung/vTambahPemilikwisata' </script>";
-            
+
         }
     }
  }
@@ -371,7 +371,7 @@ class Admin_Dinas extends CI_Controller
                         $uploadPath = 'uploads/files/';
                         $config['upload_path'] = $uploadPath;
                         $config['allowed_types'] = 'jpg|jpeg|png|gif';
-                                        
+
 
                         // Load and initialize upload library
                         $this->load->library('upload', $config);
@@ -390,7 +390,7 @@ class Admin_Dinas extends CI_Controller
                         // Insert files data into the database
                         $insert = $this->Dbs_CRUD->insert_gambar($uploadData);
                     }
-                }            
+                }
 
             redirect('Admin_Dinas','refresh');
     }

@@ -15,10 +15,7 @@
                             <div class="col-lg-6">
                                 <div class="p-20 m-b-20">
 
-                                    <h4 class="header-title m-t-0">Form untuk menambahkan admin dinas</h4>
-                                    <p class="text-muted font-13 m-b-10">
-                                        Parsley is a javascript form validation library. It helps you provide your users with feedback on their form submission before sending it to your server.
-                                    </p>
+                                    <h4 class="header-title m-t-0">Tambah admin dinas</h4>
 
                                     <div class="m-b-20">
                                       <form action="<?php echo base_url()."Superadmin/tambahAdmindinas" ?>" method="POST" class="form-validation">
@@ -76,26 +73,6 @@
                             </div>
                         </div>
                         <!-- end row -->
-
-
-                        <div class="row">
-                            <div class="col-sm-12">
-                                <div class="p-20 m-b-20">
-                                    <h4 class="m-b-30 m-t-0 header-title">Summernote Editor</h4>
-                                    <div class="summernote">
-                                        <h4>Hello Summer note</h4>
-                                        <ul>
-                                            <li>
-                                                Select a text to reveal the toolbar.
-                                            </li>
-                                            <li>
-                                                Edit rich document on-the-fly, so elastic!
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
                         <!-- end row -->
 
                     </div> <!-- container -->

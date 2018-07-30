@@ -213,7 +213,7 @@ google.maps.event.addDomListener(window, 'load', init);
    <div class="row">
       <div class="col-lg-12">
          <div class="p-20 m-b-20">
-            <h4 class="header-title m-t-0">Form untuk menambahkan admin dinas</h4>
+            <h4 class="header-title m-t-0">Ubah admin dinas</h4>
             <div id="maps" style="width: 900px; height: 520px; left: 0px;" ></div>
             <div class="col-md-12">
                <textarea class="form-control" rows="1" name="alamat" id="alamat" placeholder="Cari Alamat"></textarea>
