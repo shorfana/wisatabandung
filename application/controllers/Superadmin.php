@@ -11,13 +11,18 @@ class Superadmin extends CI_Controller
     	$this->load->model('Dbs_CRUD');
         $this->load->model('Dbs_sadmin');
         $this->load->model('Dbs_home');
+				$this->load->model('Data_Wisata_Model');
     	$this->load->helper('url');
         if ($this->session->userdata('status')!='superadmin') {
             redirect(base_url()."Login");
         }
     }
 
+
+
     function index(){
+			$statistik=$this->Data_Wisata_Model->get_statistik_wisata();
+			$footerdata['statistik'] =$statistik;
         $kotban=$this->Dbs_home->hitung_kotban()->row();
         $cimahi=$this->Dbs_home->hitung_cimahi()->row();
         $kabban=$this->Dbs_home->hitung_kabban()->row();
@@ -30,7 +35,7 @@ class Superadmin extends CI_Controller
         );
         $this->load->view('superadmin/header');
     	$this->load->view('superadmin/home',$data);
-        $this->load->view('superadmin/footer');
+        $this->load->view('superadmin/footer',$footerdata);
     }
 
     function pengelolaan_data_wilayah(){

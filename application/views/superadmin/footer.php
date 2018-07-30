@@ -1,4 +1,4 @@
-                  
+
 
                 </div> <!-- content -->
 
@@ -29,13 +29,12 @@
 
         <!-- Dashboard init -->
         <script type="text/javascript">
-            
-            var dataExplicit=[
-             { y: 'Bandung', a: 50,},
-            { y: 'Bandung Barat', a: 75},
-            { y: 'Cimahi', a: 30},
-            { y: 'Kab Bandung', a: 50}
-          ];
+
+              var dataExplicit=[
+                <?php foreach ($statistik as $d): ?>
+                { y: "<?php echo $d->kode_kabupaten ?>", a: <?php echo $d->jumlah ?>,}
+                <?php endforeach; ?>
+            ];
         </script>
         <script src="<?php echo base_url() ?>dark/assets/pages/jquery.dashboard.js"></script>
 
@@ -103,7 +102,7 @@
         <!--[if IE]>
         <script type="text/javascript" src="assets/plugins/jquery-knob/excanvas.js"></script>
         <![endif]-->
-        <script src="<?php echo base_url() ?>dark/assets/plugins/jquery-knob/jquery.knob.js"></script>        
+        <script src="<?php echo base_url() ?>dark/assets/plugins/jquery-knob/jquery.knob.js"></script>
 
         <!-- Key Tables -->
         <script src="<?php echo base_url() ?>dark/assets/plugins/datatables/dataTables.keyTable.min.js"></script>
@@ -135,7 +134,7 @@
         <script src="<?php echo base_url() ?>dark/assets/plugins/datatables/responsive.bootstrap4.min.js"></script>
 
         <!-- Selection table -->
-        <script src="<?php echo base_url() ?>dark/assets/plugins/datatables/dataTables.select.min.js"></script>          
+        <script src="<?php echo base_url() ?>dark/assets/plugins/datatables/dataTables.select.min.js"></script>
 
         <script type="text/javascript">
             $(document).ready(function() {
@@ -169,7 +168,7 @@
                         .appendTo('#datatable-buttons_wrapper .col-md-6:eq(0)');
             } );
 
-        </script>        
+        </script>
 
         <script type="<?php echo base_url() ?>dark/assets/text/javascript">
             $(document).ready(function() {
@@ -181,7 +180,7 @@
                     focus: false                 // set focus to editable area after initializing summernote
                 });
             });
-        </script>        
+        </script>
 
     </body>
 </html>

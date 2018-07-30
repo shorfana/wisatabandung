@@ -140,4 +140,10 @@ public function get_kabupaten()
       $insert = $this->db->insert_batch('gambar',$data);
       return $insert?true:false;
      }
+
+     public function get_statistik_wisata()
+     {
+       $sql="SELECT kode_kabupaten, count(kode_wisata) as jumlah from data_wisata GROUP BY kode_kabupaten";
+       return $this->db->query($sql)->result();
+     }
 }
